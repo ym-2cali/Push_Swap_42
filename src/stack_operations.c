@@ -28,5 +28,6 @@ int pop(t_list *stack)
     stack->tail = stack->tail->prev;
     stack->head->prev = stack->tail;
     stack->tail->next = stack->head;
+    stack->size--;
     return (content);
 }
