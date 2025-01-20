@@ -19,4 +19,10 @@ typedef struct s_list {
 
 }   t_list;
 
+void    push(t_list *stack, int *content);
+int pop(t_list *stack);
+void    clear_stack(t_list *stack);
+t_node  *create_node(int *content);
+void    fill_stack(t_list *stack, t_node *node);
+
 #endif

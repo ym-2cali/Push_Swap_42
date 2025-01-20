@@ -6,16 +6,49 @@ void    clear_stack(t_list *stack)
 
     if (!stack)
         return ;
-    while (stack->head != stack->tail || !(stack->head))
+    while (stack->head != stack->tail && stack->head)
     {
         tmp = stack;
-        if (tmp)
-            free(tmp);
         stack->head = stack->head->next;
+        if (tmp)
+        {
+            free(tmp);
+            tmp = NULL;
+        }
     }
-    free(tmp->tail);
+    if (stack->head)
+    {
+        free(stack->head);
+        stack->head = NULL;
+    }
 }
 
+t_node  *create_node(int *content)
+{
+    t_node  *node;
+
+    if (!content)
+        return (NULL);
+    node = malloc(sizeof(t_node));
+    if (!node)
+        return (free(content), content = NULL, NULL);
+    node->content = *content;
+    node->prev = NULL;
+    node->next = NULL;
+    return (node);
+}
+
+void    fill_stack(t_list *stack, t_node *node)
+{
+    if (!stack || !node)
+        return ;
+    node->prev = stack->tail;
+    node->next = stack->head;
+    stack->tail->next = node;
+    stack->head->prev = node;
+    stack->size++;
+    stack->tail = node;
+}
 int main()
 {
     t_list  *x = malloc(sizeof(t_list));
@@ -35,12 +68,13 @@ int main()
     c->next = a;
     c->prev = b;
     c->content = 3;
+    // int n = 19;
 
-    clear_stack(x);
-    while (x->head != x->tail)
+    pop(x);
+    while (x->head != x->tail && x->head)
     {
         printf("%d\n", x->head->content);
         x->head = x->head->next;
     }
-    printf("%d\n", x->tail->content);
+    printf("%d\n", x->head->content);
 }
