@@ -1,5 +1,5 @@
-SRC = src/operations.c src/stack_utils.c src/stack_operations.c libft/ft_strjoin.c libft/ft_strlen.c \
-
+SRC = src/main.c src/operations.c    parse/libft_parse_utils.c \
+#src/stack_operations.c
 OBJ = $(SRC:.c=.o)
 
 CC = cc
@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -Werror -ggdb3
 
 NAME = push_swap
 
-all: $(NAME)
+all:$(NAME)
 
 $(NAME):$(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)

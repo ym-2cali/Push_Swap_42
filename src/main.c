@@ -1,4 +1,4 @@
-// #include "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 // int main(int ac, char **av)
 // {
@@ -13,3 +13,15 @@
 //     clear_stack(&b);
 //     return (0);
 // }
+int main(int ac, char **av)
+{
+    int     i = 1;
+
+    char *str = av[i];
+    while (++i < ac)
+    {
+        str = str_join(str, av[i]);
+    }
+    printf("%s\n", str);
+    return (0);
+}
