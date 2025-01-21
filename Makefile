@@ -1,10 +1,10 @@
-SRC = src/operations.c src/main.c src/parse.c \
+SRC = src/operations.c src/stack_utils.c src/stack_operations.c\
 
 OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -ggdb3
 
 NAME = push_swap
 

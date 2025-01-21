@@ -7,9 +7,9 @@
 # include <string.h>
 
 typedef struct s_node {
-    int content;
     struct s_node    *next;
     struct s_node    *prev;
+    int content;
 } t_node;
 
 typedef struct s_list {
@@ -19,10 +19,10 @@ typedef struct s_list {
 
 }   t_list;
 
-void    push(t_list *stack, int *content);
+void    push(t_list *stack, int content);
 int pop(t_list *stack);
 void    clear_stack(t_list *stack);
-t_node  *create_node(int *content);
+t_node  *create_node(int content);
 void    fill_stack(t_list *stack, t_node *node);
 
 #endif
