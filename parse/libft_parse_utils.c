@@ -7,6 +7,16 @@ int	ft_isdigit(char c)
 	return (0);
 }
 
+int is_sign(char c)
+{
+    int i;
+
+    i = 0;
+    if (c == '+' || c == '-')
+            i++;
+    return (i);
+}
+
 int count_signs(char *str)
 {
     int i;
@@ -15,10 +25,7 @@ int count_signs(char *str)
     i = -1;
     c = 0;
     while (str[++i])
-    {
-        if (str[i] == '+' || str[i] == "-")
-            c++;
-    }
+        c += is_sign(str[i]);
     return (c);
 }
 

@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <limits.h>
 
 typedef struct s_node {
     struct s_node    *next;
@@ -27,7 +28,11 @@ void    fill_stack(t_list *stack, t_node *node);
 int     ft_strlen(char *str);
 char    *str_join(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
-int	    ft_isdigit(int c);
-
+int	    ft_isdigit(char c);
+int     ft_atoi(const char *str);
+int     valid_value(char *arg);
+int     check_duplicate(t_list *stack, int value);
+int     is_sign(char c);
+int     count_signs(char *str);
 
 #endif
