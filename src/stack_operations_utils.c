@@ -38,37 +38,37 @@ void    fill_stack(t_list *stack, t_node *node)
     stack->tail = node;
 }
 
-int main()
-{
-    t_list  x;
+// int main()
+// {
+//     t_list  x;
 
-    bzero(&x, sizeof(t_list));
-    push(&x, 3);
-    push(&x, 4);
-    push(&x, 5);
-    push(&x, 6);
-    push(&x, 7);
-    push(&x, 8);
+//     bzero(&x, sizeof(t_list));
+//     push(&x, 3);
+//     push(&x, 4);
+//     push(&x, 5);
+//     push(&x, 6);
+//     push(&x, 7);
+//     push(&x, 8);
 
-    t_node  *tmp;
-    tmp = x.tail;
-    printf("------------------------------\n");
-    while (tmp != x.head && tmp)
-    {
-        printf("%d\n", tmp->content);
-        tmp = tmp->prev;
-    }
-    printf("%d\n", tmp->content);
-    printf("------------------------------\n");
-    printf("%d\n", pop(&x));
-    tmp = x.tail;
-    printf("------------------------------\n");
-    while (tmp != x.head && tmp)
-    {
-        printf("%d\n", tmp->content);
-        tmp = tmp->prev;
-    }
-    printf("%d\n", tmp->content);
-    printf("------------------------------\n");
-    clear_stack(&x);
-}
+//     t_node  *tmp;
+//     tmp = x.tail;
+//     printf("------------------------------\n");
+//     while (tmp != x.head && tmp)
+//     {
+//         printf("%d\n", tmp->content);
+//         tmp = tmp->prev;
+//     }
+//     printf("%d\n", tmp->content);
+//     printf("------------------------------\n");
+//     printf("%d\n", pop(&x));
+//     tmp = x.tail;
+//     printf("------------------------------\n");
+//     while (tmp != x.head && tmp)
+//     {
+//         printf("%d\n", tmp->content);
+//         tmp = tmp->prev;
+//     }
+//     printf("%d\n", tmp->content);
+//     printf("------------------------------\n");
+//     clear_stack(&x);
+// }

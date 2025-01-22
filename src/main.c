@@ -16,12 +16,35 @@
 int main(int ac, char **av)
 {
     int     i = 1;
+    t_list  *stack;
 
-    char *str = av[i];
-    while (++i < ac)
+    stack = NULL;
+    char    **arr;
+    char    *str = av[i];
+
+    while (i < ac)
     {
+
         str = str_join(str, av[i]);
+        i++ ;
+    } 
+    arr = ft_split(str, ' ');
+    int j= 0;
+    while (arr[j])
+    {
+        printf("[%s]\n", arr[j++]);
+        /* code */
     }
-    printf("%s\n", str);
+    
+    stack = parse(arr);
+        puts("here");
+    printf("%d\n", stack->head->content);
+    stack->head = stack->head->next;
+    while (stack->head != stack->tail)
+    {
+        printf("%d\n", stack->head->content);
+        stack->head = stack->head->next;
+    }
+    printf("%d\n", stack->tail->content);
     return (0);
 }

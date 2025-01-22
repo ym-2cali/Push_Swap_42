@@ -34,5 +34,7 @@ int     valid_value(char *arg);
 int     check_duplicate(t_list *stack, int value);
 int     is_sign(char c);
 int     count_signs(char *str);
+int     valid_input(t_list *stack, char *str);
+t_list  *parse(char **arr);
 
 #endif

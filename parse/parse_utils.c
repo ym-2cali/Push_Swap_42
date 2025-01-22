@@ -40,7 +40,7 @@ int valid_value(char *arg)
     
     i = -1;
     while (arg[++i])
-        if (!isdigit(arg[i]) && !is_sign(arg[i]))
+        if (!ft_isdigit(arg[i]) && !is_sign(arg[i]))
             return (0);
     return (ft_atoi(arg));
 }
@@ -49,15 +49,24 @@ int check_duplicate(t_list *stack, int value)
 {
     t_node  *tmp;
 
-    tmp = stack->tail;
-    if (stack->tail)
-    {
+	puts("gg");
+	printf(" jj [%p]",stack);
+	exit(0);
+
+	
+		// printf("[%p]", &(stack->tail));
+    // if (stack->tail)
+    // {
+		if (stack->tail)
+    		tmp = stack->tail;
+
+        puts("here");
         while (tmp != stack->head)
         {
             if (tmp->content == value)
                 return (0);
             tmp = stack->tail->prev;
         }
-    }
+    // }
     return (1);        
 }

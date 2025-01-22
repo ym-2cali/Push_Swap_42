@@ -1,10 +1,10 @@
-SRC = src/main.c src/operations.c    parse/libft_parse_utils.c \
-#src/stack_operations.c
+SRC = src/main.c src/operations.c src/stack_operations.c src/stack_operations_utils.c parse/parse_utils.c parse/libft_parse_utils.c parse/parse.c parse/split.c \
+
 OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -ggdb3
+CFLAGS = -Wall -Wextra -Werror #-ggdb3 -fsanitize=address
 
 NAME = push_swap
 
