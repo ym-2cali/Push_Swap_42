@@ -27,5 +27,7 @@ void    fill_stack(t_list *stack, t_node *node);
 int     ft_strlen(char *str);
 char    *str_join(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
+int	    ft_isdigit(int c);
+
 
 #endif

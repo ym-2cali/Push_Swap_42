@@ -1,5 +1,27 @@
 #include "../inc/push_swap.h"
 
+int	ft_isdigit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+int count_signs(char *str)
+{
+    int i;
+    int c;
+
+    i = -1;
+    c = 0;
+    while (str[++i])
+    {
+        if (str[i] == '+' || str[i] == "-")
+            c++;
+    }
+    return (c);
+}
+
 int ft_strlen(char *str)
 {
     int i;
