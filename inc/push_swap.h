@@ -36,5 +36,6 @@ int     is_sign(char c);
 int     count_signs(char *str);
 int     valid_input(t_list *stack, char *str);
 t_list  *parse(char **arr);
+int     ft_strcmp(char *s1, char *s2);
 
 #endif

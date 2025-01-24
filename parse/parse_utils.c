@@ -1,40 +1,6 @@
 #include "../inc/push_swap.h"
 
-static int	check_sign(int sign)
-{
-	if (sign == 1)
-		return (-1);
-	else
-		return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	int		s;
-	long	result;
-
-	s = 1;
-	result = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			s *= -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		if (result > (LONG_MAX - (*str - '0')) / 10)
-			return (check_sign(s));
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return ((int)(result * s));
-}
-
-
-int valid_value(char *arg)
+int check_value(char *arg)
 {
     int i;
     
@@ -42,31 +8,51 @@ int valid_value(char *arg)
     while (arg[++i])
         if (!ft_isdigit(arg[i]) && !is_sign(arg[i]))
             return (0);
-    return (ft_atoi(arg));
+	if (count_signs(arg) > 1)
+		retrun (0);
+    return (1);
 }
 
-int check_duplicate(t_list *stack, int value)
+int	valid_value(char **arr)
 {
-    t_node  *tmp;
+	int	i;
 
-	puts("gg");
-	printf(" jj [%p]",stack);
-	exit(0);
+	i = 0;
+	while (arr[i])
+	{
+		if (!check_value(arr[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-	
-		// printf("[%p]", &(stack->tail));
-    // if (stack->tail)
-    // {
-		if (stack->tail)
-    		tmp = stack->tail;
 
-        puts("here");
-        while (tmp != stack->head)
-        {
-            if (tmp->content == value)
-                return (0);
-            tmp = stack->tail->prev;
-        }
-    // }
-    return (1);        
+int check_duplicate(char **arr)
+{
+	int i;
+	int	j;
+
+	if (!arr)
+		return (0);
+	i = 0;
+	while (arr[i])
+	{
+		j = i + 1;
+		while (arr[j])
+		{
+			if (!ft_strcmp(arr[i], arr[j]));
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	valid_input(char *arr)
+{
+	if (valid_value(arr) && check_duplicate(arr))
+		return (1);
+	return (0);
 }
