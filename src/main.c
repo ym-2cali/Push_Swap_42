@@ -6,6 +6,11 @@ int main(int ac, char **av)
     char *str = av[i];
     char **arr;
     i++;
+    t_list *stack;
+    // t_node  *node;
+    int     size;
+    int *bat;
+
     if (ac > 1)
     {
         while (av[i])
@@ -14,13 +19,23 @@ int main(int ac, char **av)
             i++;
         }
         arr = ft_split(str, ' ');
-        printf("valid input : [%d]\n", valid_input(arr));
-        i = 0;
-        while (arr[i])
+        // printf("valid input : [%d]\n", valid_input(arr));
+        // i = 0;
+        // while (arr[i])
+        // {
+        //     printf("%s\n", arr[i]);
+        //     i++;
+        // }
+
+        size = tab_size(arr);
+        bat = tab(arr);
+        stack = parse(bat,size);
+        while (stack->head && stack->head != stack->tail)
         {
-            printf("%s\n", arr[i]);
-            i++;
+            printf("%d\n", stack->head->content);
+            stack->head = stack->head->next;
         }
+        printf("%d\n", stack->tail->content);
     }
     return (0);
 }
