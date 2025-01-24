@@ -30,12 +30,13 @@ char    *str_join(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
 int	    ft_isdigit(char c);
 int     ft_atoi(const char *str);
-int     valid_value(char *arg);
-int     check_duplicate(t_list *stack, int value);
+int     check_value(char *arg);
+int	    valid_value(char **arr);
+int     check_duplicate(char **arr);
 int     is_sign(char c);
 int     count_signs(char *str);
-int     valid_input(t_list *stack, char *str);
-t_list  *parse(char **arr);
+int     valid_input(char **arr);
+// t_list  *parse(char **arr);
 int     ft_strcmp(char *s1, char *s2);
 
 #endif
