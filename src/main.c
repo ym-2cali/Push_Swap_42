@@ -15,6 +15,7 @@ int main(int ac, char **av)
     // i++;
     // t_list *stack;
     // int     size;
+    // t_node  *tmp;
 
     // if (ac > 1)
     // {
@@ -34,12 +35,16 @@ int main(int ac, char **av)
 
     //     size = tab_size(arr);
     //     stack = build_stack(tab(arr),size);
-    //     while (stack->head && stack->head != stack->tail)
+    //     tmp = stack->head;
+    //     // swap(stack);
+    //     reverse_rotate(stack);
+    //     while (tmp && tmp != stack->tail)
     //     {
-    //         printf("%d\n", stack->head->content);
-    //         stack->head = stack->head->next;
+    //         printf("%d\n", tmp->content);
+    //         tmp = tmp->next;
     //     }
-    //     printf("%d\n", stack->tail->content);
+    //     printf("%d\n", tmp->content);
+    //     printf("stack head is [%d]\n", stack->head->content);
     // }
     parse(av);
     return (0);

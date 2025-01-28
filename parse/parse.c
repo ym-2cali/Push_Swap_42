@@ -65,6 +65,7 @@ void    parse(char **av)
     char    *str;
     int     size;
     t_list *stack;
+    t_node *tmp;
 
     i = 1;
     str = av[i];
@@ -82,10 +83,12 @@ void    parse(char **av)
     }
     size = tab_size(arr);
     stack = build_stack(tab(arr), size);
-    while (stack->head && stack->head != stack->tail)
+    tmp = stack->head;
+    while (tmp && tmp != stack->tail)
     {
-        printf("%d\n", stack->head->content);
-        stack->head = stack->head->next;
+        printf("%d\n", tmp->content);
+        tmp = tmp->next;
     }
-    printf("%d\n", stack->tail->content);
+    printf("%d\n", tmp->content);
+    // return (stack);
 }
