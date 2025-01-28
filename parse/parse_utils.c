@@ -58,3 +58,22 @@ int	valid_input(char **arr)
 		return (1);
 	return (0);
 }
+
+// int	check_range(char **av, int ac)
+// {
+// 	int	size;
+// 	int	*arr;
+// 	int	i;
+
+// 	size = ac;
+// 	arr = tab(av);
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		if (arr[i] > INT_MAX)
+// 			return (0); 
+// 		i++;
+// 	}
+// 	free(arr);
+// 	return (1);
+// }

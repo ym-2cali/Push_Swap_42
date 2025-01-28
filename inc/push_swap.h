@@ -37,8 +37,10 @@ int     is_sign(char c);
 int     count_signs(char *str);
 int     valid_input(char **arr);
 int     ft_strcmp(char *s1, char *s2);
-t_list  *parse(int *tab,int size);
+t_list  *build_stack(int *tab,int size);
 int     *tab(char **arr);
 int     tab_size(char **arr);
+// int	    check_range(char **av, int ac);
+void    parse(char **av);
 
 #endif
