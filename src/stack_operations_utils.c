@@ -18,7 +18,7 @@ t_node  *create_node(int content)
     node->next = NULL;
     return (node);
 }
-
+    
 void    fill_stack(t_list *stack, t_node *node)
 {
     if (!stack || !node)

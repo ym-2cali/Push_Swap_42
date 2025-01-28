@@ -92,3 +92,6 @@ t_list  *parse(char **av)
     printf("%d\n", tmp->content);
     return (stack);
 }
+
+
+   
