@@ -58,7 +58,7 @@ t_list  *build_stack(int *tab, int size)
 }
 
 
-void    parse(char **av)
+t_list  *parse(char **av)
 {
     int     i;
     char    **arr;
@@ -79,7 +79,7 @@ void    parse(char **av)
     if (!valid_value(arr) || !check_duplicate(arr))
     {
         write(2, "Error\n", 6);
-        return ;
+        exit(0);
     }
     size = tab_size(arr);
     stack = build_stack(tab(arr), size);
@@ -90,5 +90,5 @@ void    parse(char **av)
         tmp = tmp->next;
     }
     printf("%d\n", tmp->content);
-    // return (stack);
+    return (stack);
 }

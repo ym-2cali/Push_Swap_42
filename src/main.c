@@ -13,7 +13,7 @@ int main(int ac, char **av)
     // char *str = av[i];
     // char **arr;
     // i++;
-    // t_list *stack;
+    t_list *stack;
     // int     size;
     // t_node  *tmp;
 
@@ -46,6 +46,7 @@ int main(int ac, char **av)
     //     printf("%d\n", tmp->content);
     //     printf("stack head is [%d]\n", stack->head->content);
     // }
-    parse(av);
+    stack = parse(av);
+    printf("--%d--%d--\n", stack->head->content, stack->tail->content);
     return (0);
 }

@@ -41,7 +41,7 @@ t_list  *build_stack(int *tab,int size);
 int     *tab(char **arr);
 int     tab_size(char **arr);
 // int	    check_range(char **av, int ac);
-void    parse(char **av);
+t_list  *parse(char **av);
 void    swap(t_list *a);
 void    rotate(t_list *a);
 void    rotate_rotate(t_list *a, t_list *b);
