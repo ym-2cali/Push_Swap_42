@@ -20,6 +20,7 @@ typedef struct s_list {
 
 }   t_list;
 
+char	**ft_freearr(char **arr);
 void    push(t_list *stack, int content);
 int     pop(t_list *stack);
 void    clear_stack(t_list *stack);
@@ -32,16 +33,15 @@ int	    ft_isdigit(char c);
 int     ft_atoi(const char *str);
 int     check_value(char *arg);
 int	    valid_value(char **arr);
-int     check_duplicate(char **arr);
+int     check_duplicate(int *tab, int size);
 int     is_sign(char c);
 int     count_signs(char *str);
-int     valid_input(char **arr);
 int     ft_strcmp(char *s1, char *s2);
-t_list  *build_stack(int *tab,int size);
+void	build_stack(int *tab,int size, t_list *stack);
 int     *tab(char **arr);
 int     tab_size(char **arr);
 // int	    check_range(char **av, int ac);
-t_list  *parse(char **av);
+void	parse(char **av, t_list *stack);
 void    swap(t_list *a);
 void    rotate(t_list *a);
 void    rotate_rotate(t_list *a, t_list *b);

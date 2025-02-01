@@ -40,7 +40,7 @@ static size_t	ft_len2all(char const *s, char c)
 	return (0);
 }
 
-static char	**ft_freearr(char **arr)
+char	**ft_freearr(char **arr)
 {
 	size_t	i;
 
