@@ -5,6 +5,16 @@ void ft()
     system("leaks push_swap");
 }
 
+// static void    print_stack(t_list *stack)
+// {
+//     while (stack->head != stack->tail)
+//     {
+//         printf("%d\n", stack->head->content);
+//         stack->head = stack->head->next;
+//     }
+//     printf("%d\n", stack->tail->content);
+// }
+
 int main(int ac, char **av)
 {
     (void)ac;
@@ -47,8 +57,71 @@ int main(int ac, char **av)
     //     printf("%d\n", tmp->content);
     //     printf("stack head is [%d]\n", stack->head->content);
     // }
-    parse(av, &stack);
-	clear_stack(&stack);
+    if (ac > 1)
+    {
+        parse(av, &stack);// 159      951
+        if (stack.tail->content < stack.tail->prev->content && stack.tail->content > stack.head->content)
+        {
+            swap(&stack);// 195
+            while (stack.head != stack.tail)
+            {
+                printf("%d\n", stack.head->content);
+                stack.head = stack.head->next;
+            }
+            printf("%d\n", stack.tail->content);
+            write(1, "sa\n", 3);
+        }
+        else if (stack.tail->content > stack.tail->prev->content && stack.tail->content > stack.head->content)
+        {
+            swap(&stack);// 519
+            rotate(&stack);
+            while (stack.head != stack.tail)
+            {
+                printf("%d\n", stack.head->content);
+                stack.head = stack.head->next;
+            }
+            printf("%d\n", stack.tail->content);
+            write(1, "sa\nra\n", 7);
+        }
+        else if (stack.tail->content < stack.head->content && stack.tail->content > stack.tail->prev->content)
+        {
+            reverse_rotate(&stack);// 9 1 5
+            while (stack.head != stack.tail)
+            {
+                printf("%d\n", stack.head->content);
+                stack.head = stack.head->next;
+            }
+            printf("%d\n", stack.tail->content);
+            printf("stack->head = [%d]\n", stack.head->content);
+            write(1, "rra\n", 4);
+        }
+        else if (stack.tail->content < stack.head->content && stack.tail->content < stack.tail->prev->content)
+        {
+            swap(&stack);
+            reverse_rotate(&stack);// 9 1 5
+            while (stack.head != stack.tail)
+            {
+                printf("%d\n", stack.head->content);
+                stack.head = stack.head->next;
+            }
+            printf("%d\n", stack.tail->content);
+            printf("stack->head = [%d]\n", stack.head->content);
+            write(1, "sa\nrra\n", 7);
+        }
+        else
+        {
+            rotate(&stack);// 591
+            while (stack.head != stack.tail)
+            {
+                printf("%d\n", stack.head->content);
+                stack.head = stack.head->next;
+            }
+            printf("%d\n", stack.tail->content);
+            write(1, "ra\n", 4);
+        }
+	    clear_stack(&stack);// 
+    }
+
 	// if (!stack)
 	// {
 	// 	write(2, "Error\n", 6);

@@ -2,14 +2,11 @@
 
 void    swap(t_list *a)
 {
-    t_node  *tmp;
+    int tmp;
 
-    tmp = malloc(sizeof(t_node));
-    if (!tmp)
-        return ;
-    tmp->content = a->tail->content;
+    tmp = a->tail->content;
     a->tail->content = a->tail->prev->content;
-    a->tail->prev->content = tmp->content;
+    a->tail->prev->content = tmp;
 }
 
 void    swap_swap(t_list *a, t_list *b)
@@ -33,21 +30,12 @@ void    push_ab(t_list *a, t_list *b)
 
 void    rotate(t_list *a)
 {
-    t_node  *tmp;
-    int     value;
-
-    tmp = malloc(sizeof(t_node));
-    if (!tmp)
-        return ;
-    tmp = a->head;
-    value = a->head->content;
-    while (tmp != a->tail)
-    {
-        tmp->content = tmp->next->content;
-        tmp = tmp->next;
-    }
-    a->tail->content = value; 
+    a->head = a->tail;
+    a->tail = a->tail->prev;
 }
+
+
+
 
 void    rotate_rotate(t_list *a, t_list *b)
 {
@@ -57,20 +45,8 @@ void    rotate_rotate(t_list *a, t_list *b)
 
 void    reverse_rotate(t_list *a)
 {
-    t_node  *tmp;
-    int     value;
-
-    tmp = malloc(sizeof(t_node));
-    if (!tmp)
-        return ;
-    tmp = a->tail;
-    value = a->tail->content;
-    while (tmp != a->head)
-    {
-        tmp->content = tmp->prev->content;
-        tmp = tmp->prev;
-    }
-    a->head->content = value; 
+    a->tail = a->head;
+    a->head = a->head->next;
 }
 
 void    reverse_rotate_rotate(t_list *a, t_list *b)

@@ -4,7 +4,7 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS =  -ggdb3 -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #  -ggdb3 -fsanitize=address
 
 NAME = push_swap
 
