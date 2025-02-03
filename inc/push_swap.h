@@ -11,13 +11,12 @@ typedef struct s_node {
     struct s_node    *next;
     struct s_node    *prev;
     int content;
-} t_node;
+}   t_node;
 
 typedef struct s_list {
     int size;
     t_node  *head;
     t_node *tail;
-
 }   t_list;
 
 char	**ft_freearr(char **arr);
@@ -40,7 +39,7 @@ int     ft_strcmp(char *s1, char *s2);
 void	build_stack(int *tab,int size, t_list *stack);
 int     *tab(char **arr);
 int     tab_size(char **arr);
-// int	    check_range(char **av, int ac);
+void	print_stack(t_list *stack);
 void	parse(char **av, t_list *stack);
 void    swap(t_list *a);
 void    rotate(t_list *a);
@@ -48,5 +47,7 @@ void    rotate_rotate(t_list *a, t_list *b);
 void    reverse_rotate(t_list *a);
 void    push_ab(t_list *a, t_list *b);
 void    reverse_rotate_rotate(t_list *a, t_list *b);
+int     ft_isspace(char c);
+int     check_white_spaces(char *str);
 
 #endif

@@ -39,14 +39,34 @@ int ft_strlen(char *str)
     return (i);
 }
 
+int ft_isspace(char c)
+{
+    return (c == ' ' || (c >= 9 && c <= 13));
+}
+
+int check_white_spaces(char *str)
+{
+    int i;
+
+    i = 0;
+    while (ft_isspace(str[i]))
+        i++;
+    if (str[i] == '\0')
+        return (0);
+    return (1);
+}
+
 char    *str_join(char *s1, char *s2)
 {
     char    *s3;
     int     i;
     int     j;
 
-    if (!s2)
-        return (s1);
+    if (!s2 || s2[0] == '\0'|| !check_white_spaces(s2))
+    {
+        write(2, "Error\n", 6);
+        return (NULL);
+    }
     s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
     if (!s3)
         return (free(s1), s1 = NULL, NULL);

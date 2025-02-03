@@ -61,21 +61,15 @@ int check_duplicate(int *tab, int size)
 	return (0);
 }
 
-// int	check_range(char **av, int ac)
-// {
-// 	int	size;
-// 	int	*arr;
-// 	int	i;
+void	print_stack(t_list *stack)
+{
+	t_list *tmp;
 
-// 	size = ac;
-// 	arr = tab(av);
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		if (arr[i] > INT_MAX)
-// 			return (0); 
-// 		i++;
-// 	}
-// 	free(arr);
-// 	return (1);
-// }
+	tmp = stack;
+	while (tmp->head != tmp->tail)
+	{
+		printf("%d\n", tmp->head->content);
+		tmp->head = tmp->head->next;
+	}
+	printf("%d\n", tmp->head->content);
+}
