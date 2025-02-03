@@ -37,7 +37,7 @@ int main(int ac, char **av)
             printf("stack->head = [%d]\n", stack.head->content);
             write(1, "rra\n", 4);
         }
-        else if (stack.tail->content < stack.head->content && stack.tail->content < stack.tail->prev->content)
+        else if (stack.tail->content < stack.head->content && stack.tail->content < stack.tail->prev->content && stack.tail->prev->content < stack.head->content)
         {
             swap(&stack);
             reverse_rotate(&stack);// 9 5 1 g
@@ -45,7 +45,7 @@ int main(int ac, char **av)
             printf("stack->head = [%d]\n", stack.head->content);
             write(1, "sa\nrra\n", 7);
         }
-        else if (stack.tail->prev->content > stack.head->content && stack.tail->content < stack.tail->prev->content)
+        else if (stack.tail->content < stack.head->content && stack.tail->content < stack.tail->prev->content && stack.tail->prev->content > stack.head->content)
         {
             rotate(&stack);// 5 9 1 g 
             print_stack(&stack);

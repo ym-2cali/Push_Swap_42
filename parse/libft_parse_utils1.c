@@ -1,13 +1,5 @@
 #include "../inc/push_swap.h"
 
-// static int	check_sign(int sign)
-// {
-// 	if (sign == 1)
-// 		return (-1);
-// 	else
-// 		return (0);
-// }
-
 int	ft_atoi(const char *str)
 {
 	int		s;
@@ -23,11 +15,10 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		if (result > (INT_MAX - (*str - '0') / 10) && result > -2147483648)
+		if (result > (INT_MAX - (*str - '0')) / 10 && s != -1)
 		{
 			write(2, "Error\n", 7);
-			exit(0);
-			// return (check_sign(s));
+			exit (0);
 		}
 		result = result * 10 + (*str - '0');
 		str++;
@@ -63,9 +54,6 @@ char	*ft_strdup(const char *s1)
 	int		len;
 	int		i;
 
-	// i = 0;
-	// while (s1[i])
-	// 	i++;
 	len = ft_strlen(s1);
 	s2 = (char *)malloc(sizeof(char) * (len + 1));
 	if (!s2)
