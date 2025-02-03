@@ -29,7 +29,7 @@ int count_signs(char *str)
     return (c);
 }
 
-int ft_strlen(char *str)
+int ft_strlen(const char *str)
 {
     int i;
 

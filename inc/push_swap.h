@@ -25,7 +25,7 @@ int     pop(t_list *stack);
 void    clear_stack(t_list *stack);
 t_node  *create_node(int content);
 void    fill_stack(t_list *stack, t_node *node);
-int     ft_strlen(char *str);
+int     ft_strlen(const char *str);
 char    *str_join(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
 int	    ft_isdigit(char c);
@@ -49,5 +49,7 @@ void    push_ab(t_list *a, t_list *b);
 void    reverse_rotate_rotate(t_list *a, t_list *b);
 int     ft_isspace(char c);
 int     check_white_spaces(char *str);
+void	ft_bzero(void *s, size_t n);
+char	*ft_strdup(const char *s1);
 
 #endif

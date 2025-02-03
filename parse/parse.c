@@ -48,7 +48,7 @@ void	parse(char **av, t_list *stack)
     t_node *tmp;
 
     i = 1;
-    str = strdup(av[i]); // ft_strdup(av[i]);
+    str = ft_strdup(av[i]); // ft_strdup(av[i]);
 	if (!str)
 	{
 		write(2, "Error\n", 6);

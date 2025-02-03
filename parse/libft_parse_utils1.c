@@ -1,12 +1,12 @@
 #include "../inc/push_swap.h"
 
-static int	check_sign(int sign)
-{
-	if (sign == 1)
-		return (-1);
-	else
-		return (0);
-}
+// static int	check_sign(int sign)
+// {
+// 	if (sign == 1)
+// 		return (-1);
+// 	else
+// 		return (0);
+// }
 
 int	ft_atoi(const char *str)
 {
@@ -23,8 +23,12 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		if (result > (LONG_MAX - (*str - '0')) / 10)
-			return (check_sign(s));
+		if (result > (INT_MAX - (*str - '0') / 10) && result > -2147483648)
+		{
+			write(2, "Error\n", 7);
+			exit(0);
+			// return (check_sign(s));
+		}
 		result = result * 10 + (*str - '0');
 		str++;
 	}
@@ -39,4 +43,39 @@ int ft_strcmp(char *s1, char *s2)
     while (s1[i] && s2[i] && s1[i] == s2[i])
         i++;
     return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*c;
+	size_t			i;
+
+	c = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		c[i] = 0;
+		i++;
+	}
+}
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	int		len;
+	int		i;
+
+	// i = 0;
+	// while (s1[i])
+	// 	i++;
+	len = ft_strlen(s1);
+	s2 = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s2)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
 }
