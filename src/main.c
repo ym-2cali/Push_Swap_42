@@ -63,41 +63,38 @@ void    sort_3(t_list *stack)
         }
 }
 
-void    sort_5(t_list *stack)
-{
-    t_list  *tmp;
+// void    sort_5(t_list *stack)
+// {
+//     t_list  *tmp;
 
-    tmp = stack;
-    if (stack->tail->content < stack->tail->prev->content && stack->tail->content < stack->head->content)
-    {
-        while (tmp->tail != tmp->head)
-        {
-            if (tmp->tail->content > stack->tail->content)
-                swap(stack);
-            tmp->tail = tmp->tail->prev;
-        }
-    }
+//     tmp = stack;
+//     if (stack->tail->content < stack->tail->prev->content && stack->tail->content < stack->head->content)
+//     {
+//         while (tmp->tail != tmp->head)
+//         {
+//             if (tmp->tail->content > stack->tail->content)
+//                 swap(stack);
+//             tmp->tail = tmp->tail->prev;
+//         }
+//     }
 
-}
+// }
    
 // 5 3 10 55 4
 int main(int ac, char **av)
 {
-    (void)ac;
-
     t_list	stack;
 	ft_bzero(&stack, sizeof(t_list));
     // parse(av, &stack);// 159 
-    if (ac > 1)
-    {
-        parse(av, &stack);// 159 // 15 51
-        if (ac == 3)
-            sort_2(&stack);
-        else if (ac == 4)
-            sort_3(&stack);
-        else if (ac == 6)
-            sort_5(&stack);
-        clear_stack(&stack);
-    }
+    if (ac < 1)
+        return (1);
+    parse(av, &stack);// 159 // 15 51
+    // if (ac == 3)
+    //     sort_2(&stack);
+    // else if (ac == 4)
+    //     sort_3(&stack);
+    // else if (ac == 6)
+    //     sort_5(&stack);
+    clear_stack(&stack);
     return (0);
 }

@@ -27,7 +27,7 @@ t_node  *create_node(int content);
 void    fill_stack(t_list *stack, t_node *node);
 int     ft_strlen(const char *str);
 char    *str_join(char *s1, char *s2);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 int	    ft_isdigit(char c);
 int     ft_atoi(const char *str);
 int     check_value(char *arg);

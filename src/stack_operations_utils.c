@@ -2,8 +2,14 @@
 
 void    clear_stack(t_list *stack)
 {
-    while (stack->size)
-        pop(stack);
+    t_node *temp;
+    while(stack->head != stack ->tail)
+    {
+        temp = stack->head;
+        stack->head = stack->head->next;
+        free(temp);
+    }
+    free(stack->head);
 }
 
 t_node  *create_node(int content)

@@ -27,8 +27,8 @@ static size_t	ft_len2all(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		while (s[i] == c && s[i])
-			i++;
+		while (*s == c)
+			s++;
 		len = 0;
 		while (s[i] && s[i] != c)
 		{
@@ -57,7 +57,25 @@ char	**ft_freearr(char **arr)
 	return (NULL);
 }
 
-static char const	*ft_fullfill(char **arr, char const *s, char c, size_t i)
+// static char *ft_fullfill(char **arr, char const *s, char c, size_t i)
+// {
+// 	char	*tmp;
+
+// 	tmp = arr[i];
+// 	if (*s != c && *s)
+// 	{
+// 		while (*s != c && *s)
+// 		{
+// 			*tmp = *s;
+// 			tmp++;
+// 			s++;
+// 		}
+// 		*tmp = '\0';
+// 	}
+// 	return (tmp);
+// }
+
+static char	*ft_fullfill(char **arr, char *s, char c, size_t i)
 {
 	char	*tmp;
 
@@ -75,7 +93,8 @@ static char const	*ft_fullfill(char **arr, char const *s, char c, size_t i)
 	return (s);
 }
 
-char	**ft_split(char const *s, char c)
+
+char	**ft_split(char *s, char c)
 {
 	char	**arr;
 	size_t	i;
@@ -86,7 +105,7 @@ char	**ft_split(char const *s, char c)
 	n_words = count_words(s, c);
 	arr = (char **)malloc(sizeof(char *) * (n_words + 1));
 	if (!arr)
-		return (NULL);
+		return (free(s),NULL);
 	i = 0;
 	while (i < n_words)
 	{

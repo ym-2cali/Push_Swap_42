@@ -15,7 +15,7 @@ int *tab(char **arr)
     int *tab;
     int i;
 
-    tab = malloc(sizeof(int *) * tab_size(arr));
+    tab = malloc(sizeof(int) * tab_size(arr));
     if (!tab)
         return (NULL);
     i = 0;
@@ -66,7 +66,7 @@ void	parse(char **av, t_list *stack)
 	free(str);
 	if (!arr)
 	{
-		write(2, "Error\n", 6);
+		write(2, "Error\n", 6); 
 		exit(0);
 	}
     if (!valid_value(arr))
@@ -103,7 +103,8 @@ void	parse(char **av, t_list *stack)
         printf("%d\n", tmp->content);
         tmp = tmp->next;
     }
-    printf("%d\n", tmp->content);
+    
+    printf("%d\n", stack->tail->content);
 }
 
 
