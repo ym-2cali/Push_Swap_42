@@ -61,3 +61,21 @@ void    les_indices(t_list *stack)
     }
     tmp->index = i++;
 }
+
+void    sort_index(t_list *stack)
+{
+    t_node  *tmp;
+    t_node  *temp;
+
+    tmp = stack->head;
+    while (tmp != stack->tail)
+    {
+        temp = tmp->next;
+        while (temp != stack->tail)
+        {
+            if ()
+            temp = temp->next;
+        }
+        tmp = tmp->next;
+    }
+}
