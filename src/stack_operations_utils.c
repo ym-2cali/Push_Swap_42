@@ -66,6 +66,7 @@ void    sort_index(t_list *stack)
 {
     t_node  *tmp;
     t_node  *temp;
+    int     tempo;
 
     tmp = stack->head;
     while (tmp != stack->tail)
@@ -73,9 +74,27 @@ void    sort_index(t_list *stack)
         temp = tmp->next;
         while (temp != stack->tail)
         {
-            if ()
+            tempo = 0;
+            if (tmp->content > temp->content)
+            {
+                tempo = tmp->index;
+                tmp->index = temp->index;
+                temp->index = tempo;
+            }
             temp = temp->next;
         }
+        if (tmp->content > temp->content)
+        {
+                tempo = tmp->index;
+                tmp->index = temp->index;
+                temp->index = tempo;
+        }
         tmp = tmp->next;
+    }
+    if (stack->tail->content < stack->tail->prev->content)
+    {
+        tempo = tmp->index;
+        tmp->index = temp->index;
+        temp->index = tempo;
     }
 }

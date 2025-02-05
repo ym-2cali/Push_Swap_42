@@ -99,6 +99,7 @@ void	parse(char **av, t_list *stack)
 	}
     tmp = stack->head;
     les_indices(stack);
+    sort_index(stack);
     while (tmp && tmp != stack->tail)
     {
         printf("%d\n", tmp->content);

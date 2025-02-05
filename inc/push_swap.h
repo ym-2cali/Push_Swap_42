@@ -53,5 +53,6 @@ int     check_white_spaces(char *str);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s1);
 void    les_indices(t_list *stack);
+void    sort_index(t_list *stack);
 
 #endif
