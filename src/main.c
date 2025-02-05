@@ -10,7 +10,7 @@ void    sort_2(t_list *stack)
     if (stack->tail->content < stack->head->content)
     {
         swap(stack);
-        print_stack(stack);
+        // print_stack(stack);
         write(1, "sa\n", 3);
     }
     else
@@ -79,7 +79,7 @@ void    sort_3(t_list *stack)
 //     }
 
 // }
-   
+
 // 5 3 10 55 4
 int main(int ac, char **av)
 {
@@ -89,10 +89,10 @@ int main(int ac, char **av)
     if (ac < 1)
         return (1);
     parse(av, &stack);// 159 // 15 51
-    // if (ac == 3)
-    //     sort_2(&stack);
-    // else if (ac == 4)
-    //     sort_3(&stack);
+    if (ac == 3)
+        sort_2(&stack);
+    else if (ac == 4)
+        sort_3(&stack);
     // else if (ac == 6)
     //     sort_5(&stack);
     clear_stack(&stack);

@@ -43,3 +43,21 @@ void    fill_stack(t_list *stack, t_node *node)
     stack->size++;
     stack->tail = node;
 }
+
+void    les_indices(t_list *stack)
+{
+    t_node  *tmp;
+    int     i;
+
+    if (!stack)
+        return ;
+    tmp = stack->head;
+    tmp->index = 0;
+    i = 1;
+    while (tmp->next != stack->head)
+    {
+        tmp->index = i++;
+        tmp = tmp->next;
+    }
+    tmp->index = i++;
+}

@@ -11,6 +11,7 @@ typedef struct s_node {
     struct s_node    *next;
     struct s_node    *prev;
     int content;
+    int index;
 }   t_node;
 
 typedef struct s_list {
@@ -51,5 +52,6 @@ int     ft_isspace(char c);
 int     check_white_spaces(char *str);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s1);
+void    les_indices(t_list *stack);
 
 #endif

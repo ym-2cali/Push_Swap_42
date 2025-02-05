@@ -98,12 +98,12 @@ void	parse(char **av, t_list *stack)
 		exit(0);
 	}
     tmp = stack->head;
+    les_indices(stack);
     while (tmp && tmp != stack->tail)
     {
         printf("%d\n", tmp->content);
         tmp = tmp->next;
     }
-    
     printf("%d\n", stack->tail->content);
 }
 
