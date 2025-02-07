@@ -25,40 +25,40 @@ void    sort_3(t_list *stack)
         if (stack->tail->content < stack->tail->prev->content && stack->tail->content > stack->head->content)
         {
             swap(stack);// 195 g
-            print_stack(stack);
+            // print_stack(stack);
             write(1, "sa\n", 3);
         }
         else if (stack->tail->content > stack->head->content && stack->head->content > stack->tail->prev->content)
         {
             swap(stack);// 519 g
             rotate(stack);
-            print_stack(stack);
+            // print_stack(stack);
             write(1, "sa\nra\n", 7);
         }
         else if (stack->tail->content < stack->head->content && stack->tail->content > stack->tail->prev->content)
         {
             reverse_rotate(stack);// 9 1 5 g
-            print_stack(stack);
-            printf("stack->head = [%d]\n", stack->head->content);
+            // print_stack(stack);
+            // printf("stack->head = [%d]\n", stack->head->content);
             write(1, "rra\n", 4);
         }
         else if (stack->tail->content < stack->head->content && stack->tail->content < stack->tail->prev->content && stack->tail->prev->content < stack->head->content)
         {
             swap(stack);
             reverse_rotate(stack);// 9 5 1 g
-            print_stack(stack);
-            printf("stack->head = [%d]\n", stack->head->content);
+            // print_stack(stack);
+            // printf("stack->head = [%d]\n", stack->head->content);
             write(1, "sa\nrra\n", 7);
         }
         else if (stack->tail->content < stack->head->content && stack->tail->content < stack->tail->prev->content && stack->tail->prev->content > stack->head->content)
         {
             rotate(stack);// 5 9 1 g 
-            print_stack(stack);
+            // print_stack(stack);
             write(1, "ra\n", 4);
         }
         else
         {
-            print_stack(stack);
+            // print_stack(stack);
             write(1, "Sorted\n", 7);
         }
 }
@@ -92,24 +92,32 @@ int if_sorted(t_list *stack)
 void    sort_5(t_list *stack)
 {
     int content;
-    t_list  stack_b;
+    t_list  *stack_b;
 
-    if (if_sorted(stack))
+    // if (if_sorted(stack))
+    //     return ;
+    stack_b = malloc(sizeof(t_list));
+    if (!stack_b)
         return ;
-    while (stack->tail->index != 1)
+    stack_b->size = 0;
+    while (stack->tail->index != (stack->size - 1))
+        rotate(stack);
+    // print_stack(stack);
+    content = pop(stack);
+    // printf("content = %d\n", content);
+    push(stack_b, content);
+    while (stack->tail->index != (stack->size - 1))
         rotate(stack);
     content = pop(stack);
-    push(&stack_b, content);
-    while (stack->tail->index != 2)
-        rotate(stack);
-    content = pop(stack);
-    push(&stack_b, content);
+    push(stack_b, content);
     sort_3(stack);
-    content = pop(&stack_b);
+    content = pop(stack_b);
     push(stack, content);
-    content = pop(&stack_b);
+    content = pop(stack_b);
     push(stack, content);
     print_stack(stack);
+    // printf("[[%d]]", stack->size);
+    // clear_stack(stack_b);
 }
 
 // 5 3 10 55 4

@@ -58,5 +58,6 @@ int     back_or_front(t_list *stack);
 void    sort_5(t_list *stack);
 int     if_sorted(t_list *stack);
 void    sort_3(t_list *stack);
+void    print_rstack(t_list *stack);
 
 #endif

@@ -10,14 +10,15 @@ void    push(t_list *stack, int content)
 int pop(t_list *stack)
 {
     t_node  *tmp;
-    int     content = 0;
+    int     cont = 0;
 
-    content = stack->tail->content;
+    cont = stack->tail->content;
     tmp = stack->tail;
     stack->tail = stack->tail->prev;
     stack->head->prev = stack->tail;
     stack->tail->next = stack->head;
     stack->size--;
     free(tmp);
-    return (content);
+    return (cont);
 }
+

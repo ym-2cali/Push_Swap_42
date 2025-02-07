@@ -45,7 +45,7 @@ void	parse(char **av, t_list *stack)
     char    *str;
     int     size;
 	int		*bat;
-    t_node *tmp;
+    // t_node *tmp;
 
     i = 1;
     str = ft_strdup(av[i]); // ft_strdup(av[i]);
@@ -97,16 +97,27 @@ void	parse(char **av, t_list *stack)
 		clear_stack(stack);
 		exit(0);
 	}
-    tmp = stack->head;
+    // tmp = stack->head;
     les_indices(stack);
     sort_index(stack);
-    while (tmp && tmp != stack->tail)
-    {
-        printf("%d\n", tmp->content);
-        tmp = tmp->next;
-    }
-    printf("%d\n", stack->tail->content);
+    // while (tmp && tmp != stack->tail)
+    // {
+    //     printf("%d\n", tmp->content);
+    //     tmp = tmp->next;
+    // }
+    // printf("%d\n", stack->tail->content);
+    print_stack(stack);
 }
+// void    print_rstack(t_list *stack)
+// {
+//     t_node  *tmp;
 
-
+//     tmp = stack->tail;
+//     while (tmp != stack->tail->prev)
+//     {
+//         printf("%d\n", tmp->content);
+//         tmp = tmp->next;
+//     }
+//     printf("%d\n", tmp->content);
+// }
    

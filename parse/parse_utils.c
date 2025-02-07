@@ -69,9 +69,9 @@ void	print_stack(t_list *stack)
 	while (tmp.head != tmp.tail)
 	{
 		printf("%d\n", tmp.head->content);
-		printf("[%d]\n", tmp.head->index);
+		// printf("[%d]\n", tmp.head->index);
 		tmp.head = tmp.head->next;
 	}
 	printf("%d\n", tmp.head->content);
-	printf("[%d]\n", tmp.head->index);
+	// printf("[%d]\n", tmp.head->index);
 }

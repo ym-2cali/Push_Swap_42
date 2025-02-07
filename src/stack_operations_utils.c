@@ -54,7 +54,8 @@ void    les_indices(t_list *stack)
     tmp = stack->head;
     tmp->index = 0;
     i = 1;
-    while (tmp->next != stack->head)
+    tmp = tmp->next;
+    while (tmp != stack->tail)
     {
         tmp->index = i++;
         tmp = tmp->next;
