@@ -63,12 +63,21 @@ void    sort_3(t_list *stack)
         }
 }
 
-int back_or_front(t_list *stack)
+int back_or_front(t_list *stack, int ind)
 {
     int     len;
+    int     i;
+    t_node  *tmp;
 
+    tmp = stack->head;
+    i = 0;
+    while (tmp->index != ind)
+    {
+        i++;           
+        tmp = tmp->next;
+    }
     len = (stack->size / 2) - 1;
-    if (stack->head->index < len)
+    if (i < len)
         return (0);
     return (1);
 }
@@ -100,14 +109,39 @@ void    sort_5(t_list *stack)
     if (!stack_b)
         return ;
     stack_b->size = 0;
+    int ind = stack->size - 1;
     while (stack->tail->index != (stack->size - 1))
-        rotate(stack);
+    {
+        if (back_or_front(stack, ind))
+        {
+            rotate(stack);
+            write(1, "ra\n", 3);
+        }
+        else if (!back_or_front(stack, ind))
+        {
+            reverse_rotate(stack);
+            write(1, "rra\n", 4);
+        }
+
+    }
     // print_stack(stack);
     content = pop(stack);
     // printf("content = %d\n", content);
     push(stack_b, content);
+    ind = stack->size - 1;
     while (stack->tail->index != (stack->size - 1))
-        rotate(stack);
+    {
+        if (back_or_front(stack, ind))
+        {
+            rotate(stack);
+            write(1, "ra\n", 3);
+        }
+        else if (!back_or_front(stack, ind))
+        {
+            reverse_rotate(stack);
+            write(1, "rra\n", 4);
+        }
+    }
     content = pop(stack);
     push(stack_b, content);
     sort_3(stack);
