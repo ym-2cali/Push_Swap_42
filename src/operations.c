@@ -4,9 +4,9 @@ void    swap(t_list *a)
 {
     int tmp;
 
-    tmp = a->tail->content;
-    a->tail->content = a->tail->prev->content;
-    a->tail->prev->content = tmp;
+    tmp = a->head->content;
+    a->head->content = a->head->next->content;
+    a->head->next->content = tmp;
 }
 
 void    swap_swap(t_list *a, t_list *b)
@@ -28,27 +28,23 @@ void    push_ab(t_list *a, t_list *b)
     a->size++;
 }
 
-void    rotate(t_list *a)
+void    reverse_rotate(t_list *a)
 {
     a->head = a->tail;
     a->tail = a->tail->prev;
 }
 
-
-
+void    rotate(t_list *a)
+{
+    a->tail = a->head;
+    a->head = a->head->next;
+}
 
 void    rotate_rotate(t_list *a, t_list *b)
 {
     rotate(a);
     rotate(b);
 }
-
-void    reverse_rotate(t_list *a)
-{
-    a->tail = a->head;
-    a->head = a->head->next;
-}
-
 void    reverse_rotate_rotate(t_list *a, t_list *b)
 {
     reverse_rotate(a);

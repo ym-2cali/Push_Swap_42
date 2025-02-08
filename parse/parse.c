@@ -99,14 +99,17 @@ void	parse(char **av, t_list *stack)
 	}
     // tmp = stack->head;
     les_indices(stack);
+    // printf("----------\n");
     sort_index(stack);
+    // print_stack(stack);
+    // printf("----------\n");
     // while (tmp && tmp != stack->tail)
     // {
     //     printf("%d\n", tmp->content);
     //     tmp = tmp->next;
     // }
     // printf("%d\n", stack->tail->content);
-    print_stack(stack);
+    // print_stack(stack);
 }
 // void    print_rstack(t_list *stack)
 // {
