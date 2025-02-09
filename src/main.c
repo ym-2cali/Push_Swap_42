@@ -164,6 +164,8 @@ void    sort_5(t_list *stack)
 int main(int ac, char **av)
 {
     t_list	stack;
+    t_list  stack_b;
+
 	ft_bzero(&stack, sizeof(t_list));
     // parse(av, &stack);// 159 
     if (ac < 1)
@@ -175,6 +177,10 @@ int main(int ac, char **av)
         sort_3(&stack);
     else if (ac == 6)
         sort_5(&stack);
+    else
+    {
+        
+    }
     clear_stack(&stack);
     return (0);
 }

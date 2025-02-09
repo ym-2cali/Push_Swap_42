@@ -7,6 +7,7 @@ void    swap(t_list *a)
     tmp = a->head->content;
     a->head->content = a->head->next->content;
     a->head->next->content = tmp;
+    write(1, "pab\n", 4);
 }
 
 void    swap_swap(t_list *a, t_list *b)
