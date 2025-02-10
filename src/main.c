@@ -20,18 +20,23 @@ void    sort_2(t_list *stack)
     }    
 }
 
-void    sort_3(t_list *stack)// 159 / / /    
+int   sort_3(t_list *stack)// 159 / / /    
 {
+    int counter;
+
+    counter = 0;
         if (stack->tail->content < stack->tail->prev->content && stack->tail->content > stack->head->content)
         {// 195 
             swap(stack);// 195 
             rotate(stack);
             // print_stack(stack);
+            // counter = 2;
             write(1, "sa\nra\n", 6);
         }
         else if (stack->head->content > stack->head->next->content && stack->head->content < stack->tail->content)
         {
             swap(stack);// 519 
+            // counter = 1;
             // print_stack(stack);
             write(1, "sa\n", 3);
         }
@@ -40,6 +45,7 @@ void    sort_3(t_list *stack)// 159 / / /
             reverse_rotate(stack);//  591 
             // print_stack(stack);
             // printf("stack->head = [%d]\n", stack->head->content);
+            // counter = 1;
             write(1, "rra\n", 4);
         }
         else if (stack->tail->content < stack->head->content && stack->tail->content > stack->tail->prev->content)
@@ -47,6 +53,7 @@ void    sort_3(t_list *stack)// 159 / / /
             rotate(stack);//915g
             // print_stack(stack);
             // printf("stack->head = [%d]\n", stack->head->content);
+            // counter = 1;
             write(1, "ra\n", 3);
         }
         else if (stack->tail->prev->content < stack->head->content && stack->tail->prev->content > stack->tail->content)
@@ -54,6 +61,7 @@ void    sort_3(t_list *stack)// 159 / / /
             swap(stack);
             reverse_rotate(stack);// 951
             // print_stack(stack);
+            // counter = 1;
             write(1, "sa\nrra\n", 8);
         }
         else
