@@ -4,6 +4,8 @@ void    swap(t_list *a)
 {
     int tmp;
 
+    if (!a)
+        return ;
     tmp = a->head->content;
     a->head->content = a->head->next->content;
     a->head->next->content = tmp;

@@ -65,11 +65,17 @@ void	print_stack(t_list *stack)
 {
 	t_list tmp;
 
+	if (stack->size == 1)
+	{
+		printf("%d\n", stack->head->content);
+		return ;
+	}
 	tmp = *stack;
 	while (tmp.head != tmp.tail)
 	{
 		printf("%d\n", tmp.head->content);
 		printf("[%d]\n", tmp.head->index);
+		printf("{[%d]}\n", tmp.size);
 		tmp.head = tmp.head->next;
 	}
 	printf("%d\n", tmp.head->content);

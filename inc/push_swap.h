@@ -60,6 +60,7 @@ void    sort_5(t_list *stack);
 int     if_sorted(t_list *stack);
 int     sort_3(t_list *stack);
 int     distance(t_list *stack);
+void    sort_algo(t_list *stack, t_list *stack_b);
 // void    print_rstack(t_list *stack);
 
 #endif

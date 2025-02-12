@@ -33,6 +33,8 @@ void    fill_stack(t_list *stack, t_node *node)
     {
         stack->head = node;
         stack->tail = node;
+        node->next = node;
+        node->prev = node;
         stack->size++;
         return ;
     }

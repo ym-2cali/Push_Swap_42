@@ -25,51 +25,52 @@ int   sort_3(t_list *stack)// 159 / / /
     int counter;
 
     counter = 0;
-        if (stack->tail->content < stack->tail->prev->content && stack->tail->content > stack->head->content)
-        {// 195 
-            swap(stack);// 195 
-            rotate(stack);
-            // print_stack(stack);
-            // counter = 2;
-            write(1, "sa\nra\n", 6);
-        }
-        else if (stack->head->content > stack->head->next->content && stack->head->content < stack->tail->content)
-        {
-            swap(stack);// 519 
-            // counter = 1;
-            // print_stack(stack);
-            write(1, "sa\n", 3);
-        }
-        else if (stack->head->content < stack->head->next->content && stack->head->content > stack->tail->content)
-        {
-            reverse_rotate(stack);//  591 
-            // print_stack(stack);
-            // printf("stack->head = [%d]\n", stack->head->content);
-            // counter = 1;
-            write(1, "rra\n", 4);
-        }
-        else if (stack->tail->content < stack->head->content && stack->tail->content > stack->tail->prev->content)
-        {
-            rotate(stack);//915g
-            // print_stack(stack);
-            // printf("stack->head = [%d]\n", stack->head->content);
-            // counter = 1;
-            write(1, "ra\n", 3);
-        }
-        else if (stack->tail->prev->content < stack->head->content && stack->tail->prev->content > stack->tail->content)
-        {
-            swap(stack);
-            reverse_rotate(stack);// 951
-            // print_stack(stack);
-            // counter = 1;
-            write(1, "sa\nrra\n", 8);
-        }
-        else
-        {
-            // print_stack(stack);
-            write(1, "Sorted\n", 7);
-        }
+    if (stack->tail->content < stack->tail->prev->content && stack->tail->content > stack->head->content)
+    {// 195 
+        swap(stack);// 195 
+        rotate(stack);
+        // print_stack(stack);
+        // counter = 2;
+        write(1, "sa\nra\n", 6);
+    }
+    else if (stack->head->content > stack->head->next->content && stack->head->content < stack->tail->content)
+    {
+        swap(stack);// 519 
+        // counter = 1;
+        // print_stack(stack);
+        write(1, "sa\n", 3);
+    }
+    else if (stack->head->content < stack->head->next->content && stack->head->content > stack->tail->content)
+    {
+        reverse_rotate(stack);//  591 
+        // print_stack(stack);
+        // printf("stack->head = [%d]\n", stack->head->content);
+        // counter = 1;
+        write(1, "rra\n", 4);
+    }
+    else if (stack->tail->content < stack->head->content && stack->tail->content > stack->tail->prev->content)
+    {
+        rotate(stack);//915g
+        // print_stack(stack);
+        // printf("stack->head = [%d]\n", stack->head->content);
+        // counter = 1;
+        write(1, "ra\n", 3);
+    }
+    else if (stack->tail->prev->content < stack->head->content && stack->tail->prev->content > stack->tail->content)
+    {
+        swap(stack);
+        reverse_rotate(stack);// 951
+        // print_stack(stack);
+        // counter = 1;
+        write(1, "sa\nrra\n", 8);
+    }
+    else
+    {
+        // print_stack(stack);
+        write(1, "Sorted\n", 7);
+    }
     print_stack(stack);
+    return (0);
 }
 
 int back_or_front(t_list *stack, int ind)
@@ -175,20 +176,25 @@ int main(int ac, char **av)
     t_list  stack_b;
 
 	ft_bzero(&stack, sizeof(t_list));
+    ft_bzero(&stack_b, sizeof(t_list));
     // parse(av, &stack);// 159 
     if (ac < 1)
         return (1);
     parse(av, &stack);// 159 // 15 51
-    if (ac == 3)
-        sort_2(&stack);
-    else if (ac == 4)
-        sort_3(&stack);
-    else if (ac == 6)
-        sort_5(&stack);
-    else
-    {
-        
-    }
+    // printf("here\n");
+    // if (ac == 3)
+    //     sort_2(&stack);
+    // else if (ac == 4)
+    //     sort_3(&stack);
+    // else if (ac == 6)
+    //     sort_5(&stack);
+    // rotate(&stack);
+    sort_algo(&stack, &stack_b);
+    les_indices(&stack_b);
+    sort_index(&stack_b);
     clear_stack(&stack);
+    // swap(&stack);
+    // printf("", stack->head->content, stack->tail->content);
+    print_stack(&stack);
     return (0);
 }
