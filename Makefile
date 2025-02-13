@@ -1,5 +1,6 @@
-SRC =  src/main.c  src/sort.c src/operations.c src/stack_operations.c src/stack_operations_utils.c parse/parse_utils.c parse/libft_parse_utils.c parse/parse.c parse/split.c parse/libft_parse_utils1.c \
-# test.c
+SRC =  src/main.c  src/operations.c  src/stack_operations_utils.c parse/parse_utils.c parse/libft_parse_utils.c\
+parse/parse.c parse/split.c parse/libft_parse_utils1.c sorting_tools/sorting.c  src/stack_operations.c \
+# test.c 
 OBJ = $(SRC:.c=.o)
 
 CC = cc

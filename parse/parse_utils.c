@@ -63,21 +63,26 @@ int check_duplicate(int *tab, int size)
 
 void	print_stack(t_list *stack)
 {
-	t_list tmp;
+	t_node *tmp;
 
-	if (stack->size == 1)
+	if (!stack)
 	{
-		printf("%d\n", stack->head->content);
+		printf("wow\n");
 		return ;
 	}
-	tmp = *stack;
-	while (tmp.head != tmp.tail)
+	// if (stack->size <= 1)
+	// {
+	// 	printf("%d\n",stack->head->content);
+	// 	return ;
+	// }
+	tmp = stack->head;
+	// printf("{%d}\n", tmp->prev->content);
+	while (tmp != stack->tail)
 	{
-		printf("%d\n", tmp.head->content);
-		printf("[%d]\n", tmp.head->index);
-		printf("{[%d]}\n", tmp.size);
-		tmp.head = tmp.head->next;
+		printf("%d\n", tmp->content);
+		printf("[%d]\n", tmp->index);
+		tmp = tmp->next;
 	}
-	printf("%d\n", tmp.head->content);
-	printf("[%d]\n", tmp.head->index);
+	printf("%d\n", tmp->content);
+	printf("[%d]\n", tmp->index);
 }

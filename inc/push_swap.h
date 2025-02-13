@@ -12,7 +12,7 @@ typedef struct s_node {
     struct s_node    *prev;
     int content;
     int index;
-    int moves_number;
+    // int moves_number;
 }   t_node;
 
 typedef struct s_list {
@@ -59,8 +59,9 @@ int     back_or_front(t_list *stack, int ind);
 void    sort_5(t_list *stack);
 int     if_sorted(t_list *stack);
 int     sort_3(t_list *stack);
-int     distance(t_list *stack);
+// int     distance(t_list *stack);
+void    print_rstack(t_list *stack);
 void    sort_algo(t_list *stack, t_list *stack_b);
-// void    print_rstack(t_list *stack);
+void    algo(t_list *stack_a, t_list *stack_b);
 
 #endif

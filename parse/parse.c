@@ -46,7 +46,6 @@ void	parse(char **av, t_list *stack)
     int     size;
 	int		*bat;
     // t_node *tmp;
-
     i = 1;
     str = ft_strdup(av[i]); // ft_strdup(av[i]);
 	if (!str)
@@ -98,9 +97,13 @@ void	parse(char **av, t_list *stack)
 		exit(0);
 	}
     // tmp = stack->head;
+    // printf("%d\n", stack->size);
+    // printf("[%d]\n[%d]\n[%d]\n", stack->head->content ,stack->head->prev->content,stack->head->prev->prev->content);
     les_indices(stack);
     // printf("----------\n");
+    // fprintf(stderr, "here");
     sort_index(stack);
+    // sleep(10);  
     // print_stack(stack);
     // printf("----------\n");
     // while (tmp && tmp != stack->tail)
@@ -111,16 +114,20 @@ void	parse(char **av, t_list *stack)
     // printf("%d\n", stack->tail->content);
     // print_stack(stack);
 }
-// void    print_rstack(t_list *stack)
-// {
-//     t_node  *tmp;
+void    print_rstack(t_list *stack)
+{
+    t_node  *tmp;
 
-//     tmp = stack->tail;
-//     while (tmp != stack->tail->prev)
-//     {
-//         printf("%d\n", tmp->content);
-//         tmp = tmp->next;
-//     }
-//     printf("%d\n", tmp->content);
-// }
+    tmp = stack->tail;
+    // printf("%d\n", stack->tail->content);
+    // printf("%d\n", stack->tail->prev->content);
+    // printf("%d\n", stack->tail->next->content);
+    // printf("%d\n", stack->head->next->content);
+    while (tmp != stack->head)
+    {
+        printf("%d\n", tmp->content);
+        tmp = tmp->prev;
+    }
+    printf("%d\n", tmp->content);
+}
    

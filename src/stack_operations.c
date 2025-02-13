@@ -9,23 +9,19 @@ void    push(t_list *stack, int content)
 
 int pop(t_list *stack)
 {
-    t_node  *tmp;
     int     cont = 0;
 
-    tmp = stack->tail;
-    cont = stack->tail->content;
-    // if (stack->size == 1)
-    // {
-    //     stack->head = NULL;
-    //     stack->tail = NULL;
-    // }
-    stack->tail = stack->tail->prev;
+    if (stack->size == 1)
+    {
+        stack->size--;
+        clear_stack(stack);
+        return (stack->head->content);
+    }
+    cont = stack->head->content;
+    stack->head = stack->head->next;
     stack->head->prev = stack->tail;
     stack->tail->next = stack->head;
     stack->size--;
-
-    free(tmp);
-
     return (cont);
 }
 
