@@ -34,7 +34,7 @@ void	build_stack(int *tab, int size, t_list *stack)
 
     i = 0;
     while(i < size)
-		push(stack, tab[i++]);
+		push(stack, tab[i++], 's');
 }
 
 

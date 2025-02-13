@@ -22,7 +22,7 @@ typedef struct s_list {
 }   t_list;
 
 char	**ft_freearr(char **arr);
-void    push(t_list *stack, int content);
+void    push(t_list *stack, int content, char c);
 int     pop(t_list *stack);
 void    clear_stack(t_list *stack);
 t_node  *create_node(int content);
@@ -43,10 +43,10 @@ int     *tab(char **arr);
 int     tab_size(char **arr);
 void	print_stack(t_list *stack);
 void	parse(char **av, t_list *stack);
-void    swap(t_list *a);
-void    rotate(t_list *a);
+void    swap(t_list *a, char c);
+void    rotate(t_list *a, char c);
 void    rotate_rotate(t_list *a, t_list *b);
-void    reverse_rotate(t_list *a);
+void    reverse_rotate(t_list *a, char c);
 void    push_ab(t_list *a, t_list *b);
 void    reverse_rotate_rotate(t_list *a, t_list *b);
 int     ft_isspace(char c);

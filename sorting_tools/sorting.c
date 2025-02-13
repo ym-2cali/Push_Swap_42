@@ -16,15 +16,15 @@ void sort_algo(t_list *stack, t_list *stack_b)
         {
             if (stack->head->index <= (i + j))
             {
-                push(stack_b, pop(stack));
+                push(stack_b, pop(stack), 'a');
                 if (stack->head->index > i)
                 {
-                    reverse_rotate(stack_b);
+                    reverse_rotate(stack_b, 'b');
                 }
                 i++;             
             }
             else
-                rotate(stack);
+                rotate(stack, 'a');
         }
     }
     else
@@ -34,13 +34,13 @@ void sort_algo(t_list *stack, t_list *stack_b)
         {
             if (stack->head->content <= (i + j))
             {
-                push(stack_b, pop(stack));
+                push(stack_b, pop(stack), 'a');
                 if (stack->head->content > i)
-                    reverse_rotate(stack_b);
+                    reverse_rotate(stack_b, 'b');
                 i++;             
             }
             else
-                reverse_rotate(stack);
+                reverse_rotate(stack, 'a');
         }
     }
     les_indices(stack_b);
@@ -75,13 +75,13 @@ void    algo(t_list *stack_a, t_list *stack_b)
         while (stack_b->head->index != i)
         {
             if (!back_or_front(stack_b, i))
-                rotate(stack_b);
+                rotate(stack_b, 'b');
             else
-                reverse_rotate(stack_b);
+                reverse_rotate(stack_b, 'b');
             
         }
         if (stack_b->head->index == i)
-            push(stack_a, pop(stack_b));
+            push(stack_a, pop(stack_b), 'b');
         i++;
     }
 }
