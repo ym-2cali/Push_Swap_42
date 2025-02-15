@@ -34,7 +34,7 @@ void	build_stack(int *tab, int size, t_list *stack)
 
     i = 0;
     while(i < size)
-		push(stack, tab[i++], 's');
+		push(stack, tab[i++]);
 }
 
 
@@ -99,10 +99,10 @@ void	parse(char **av, t_list *stack)
     // tmp = stack->head;
     // printf("%d\n", stack->size);
     // printf("[%d]\n[%d]\n[%d]\n", stack->head->content ,stack->head->prev->content,stack->head->prev->prev->content);
-    les_indices(stack);
+    // les_indices(stack);
     // printf("----------\n");
     // fprintf(stderr, "here");
-    sort_index(stack);
+    // sort_index(stack);
     // sleep(10);  
     // print_stack(stack);
     // printf("----------\n");

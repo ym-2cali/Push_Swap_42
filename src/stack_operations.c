@@ -1,14 +1,10 @@
 #include "../inc/push_swap.h"
 
-void    push(t_list *stack, int content, char c)
+void    push(t_list *stack, int content)
 {   
     if (!stack)
         return ;
     fill_stack(stack, create_node(content));
-    if(c == 'a')
-        write(1,"pa\n",3);
-    if(c == 'b')
-        write(1,"pb\n",3);
 }
 
 int pop(t_list *stack)

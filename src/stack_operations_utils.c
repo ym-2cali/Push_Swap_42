@@ -76,51 +76,45 @@ void    les_indices(t_list *stack)
 
 void    sort_index(t_list *stack)
 {
-    t_node  *tmp;
-    t_node  *temp;
-    int     tempo;
+    t_node  *start;
+    t_node  *start_next;
+    int     tmp;
 
-    tmp = stack->head;
-    while (tmp != stack->tail)
+    start = stack->head;
+    tmp = 0;
+    while (start != stack->tail)
     {
-        temp = tmp->next;
-        while (temp != stack->tail)
+        start_next = start->next;
+        while (start_next != stack->head)
         {
-            tempo = 0;
-            if (tmp->content > temp->content && tmp->index < temp->index)
+            if ((start->content > start_next->content && start->index < start_next->index) || (start->content < start_next->content && start->index > start_next->index))
             {
-                tempo = tmp->index;
-                tmp->index = temp->index;
-                temp->index = tempo;
+                tmp = start->index;
+                start->index = start_next->index;
+                start_next->index = tmp;
             }
-            temp = temp->next;
+            start_next = start_next->next;
         }
-        tempo = 0;
-        if (tmp->content > temp->content && tmp->index < temp->index)
-        {
-            tempo = tmp->index;
-            tmp->index = temp->index;
-            temp->index = tempo;
-        }
-        tmp = tmp->next;
+        // if ((start->content > stack->tail->content && start->index < stack->tail->index) || (start->content > stack->tail->content && start->index < stack->tail->index))
+        // {
+        //     tmp = start->index;
+        //     start->index = stack->tail->index;
+        //     stack->tail->index = tmp;
+        // }
+        start = start->next;
     }
-    tempo = 0;
-    if (stack->tail->content < stack->tail->prev->content && stack->tail->index > stack->tail->prev->index)
+    start = stack->head;
+    start_next = start->next;
+    while (start_next != start)
     {
-        tempo = stack->tail->index;
-        stack->tail->index = stack->tail->prev->index;
-        stack->tail->prev->index = tempo;
-    }
-    tmp = stack->head;
-    while (tmp != stack->tail)
-    {
-        tempo = 0;
-        if (tmp->content < stack->tail->content && tmp->index > stack->tail->index)
+        if ((start->content > start_next->content && start->index < start_next->index) 
+            || (start->content < start_next->content && start->index > start_next->index))
         {
-            tempo = stack->tail->index;
-            stack->tail->index = tmp->index;
-            tmp->index = tempo;
+            tmp = start->index;
+            start->index = start_next->index;
+            start_next->index = tmp;
         }
-        tmp = tmp->next;
+        start_next = start_next->next;
     }
+
 }

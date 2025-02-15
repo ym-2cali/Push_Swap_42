@@ -22,7 +22,7 @@ typedef struct s_list {
 }   t_list;
 
 char	**ft_freearr(char **arr);
-void    push(t_list *stack, int content, char c);
+void    push(t_list *stack, int content);
 int     pop(t_list *stack);
 void    clear_stack(t_list *stack);
 t_node  *create_node(int content);
@@ -63,5 +63,7 @@ int     sort_3(t_list *stack);
 void    print_rstack(t_list *stack);
 void    sort_algo(t_list *stack, t_list *stack_b);
 void    algo(t_list *stack_a, t_list *stack_b);
+void    fill_head_stack(t_list *stack, t_node *node);
+void    push_to_head(t_list *stack, int content, char c);
 
 #endif

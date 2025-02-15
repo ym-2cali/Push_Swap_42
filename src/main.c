@@ -139,7 +139,7 @@ void    sort_5(t_list *stack)
     // sleep(2);
     content = pop(stack);
         // printf("content = %d\n", content);
-    push(stack_b, content, 'a');
+    push(stack_b, content);
     ind = stack->size - 1;
     while (stack->tail->index != (stack->size - 1))
     {
@@ -157,18 +157,53 @@ void    sort_5(t_list *stack)
         // sort_index(stack);
     }
     content = pop(stack);
-    push(stack_b, content, 'a');
+    push(stack_b, content);
     sort_3(stack);
     content = pop(stack_b);
-    push(stack, content, 'b');
+    push(stack, content);
     content = pop(stack_b);
-    push(stack, content, 'b');
+    push(stack, content);
     print_stack(stack);
     // printf("-------------");
     // printf("[[%d]]", stack->size);
     // clear_stack(stack_b);
 }
 
+void    fill_head_stack(t_list *stack, t_node *node)
+{
+    // fprintf(stderr, "DEBUG: fill-stack entry.\n");
+    if (!stack || !node)
+        return ;
+    // fprintf(stderr, "DEBUG: fill-stack after first if.\n");
+    if (stack->size == 0)
+    {
+        stack->head = node;
+        stack->tail = node;
+        node->next = node;
+        node->prev = node;
+        stack->size++;
+        // fprintf(stderr, "DEBUG: fill-stack  inside second if.\n");
+        return ;
+    }
+    // fprintf(stderr, "DEBUG: fill-stack  inside second if.\n");
+    node->prev = stack->tail;
+    node->next = stack->head;
+    stack->tail->next = node;
+    stack->head->prev = node;
+    stack->size++;
+    stack->head = node;        
+    // fprintf(stderr, "DEBUG: fill-stack after after second if.\n");
+}
+void    push_to_head(t_list *stack, int content, char c)
+{
+    if (!stack)
+        return ;
+    fill_head_stack(stack, create_node(content));
+    if(c == 'a')
+        write(1,"pa\n",3);
+    if(c == 'b')
+        write(1,"pb\n",3);
+}
 // 5 3 10 55 4
 int main(int ac, char **av)
 {
@@ -191,11 +226,12 @@ int main(int ac, char **av)
     //     sort_5(&stack);
     // else id (ac > 6)
     // {
-        
+    les_indices(&stack);
+    sort_index(&stack);
     // }
-    //  push(&stack_b, pop(&stack));
-    //  push(&stack_b, pop(&stack));
-    //  push(&stack_b, pop(&stack));
+    //  push(&stack_b, pop(&stack), 'a');
+    //  push(&stack_b, pop(&stack), 'a');
+    //  push(&stack_b, pop(&stack), 'a');
     //  push(&stack_b, pop(&stack));
     // swap(&stack);
     
@@ -203,14 +239,19 @@ int main(int ac, char **av)
     // printf("%d\n" ,stack_b.tail->content);
     // printf("%d\n" ,stack_b.head->content);
     // reverse_rotate(&stack_b);
+    print_stack(&stack);
+    // printf("here\n");
     sort_algo(&stack, &stack_b);
     // les_indices(&stack_b);
     // sort_index(&stack_b);
-    // print_stack(&stack_b);
+    printf("-------------------\n");
+    print_stack(&stack_b);
+    printf("----------[%d]---------\n", stack_b.size);
     algo(&stack, &stack_b);
+    printf("-------------------\n");
+    print_stack(&stack);
     // printf("%d\n%d\n%d\n", stack_b.head->content, stack_b.head->next->content, stack_b.tail->content);
     //printf("------------------\n");
-    //print_stack(&stack_b);
     // print_rstack(&stack);
     // printf("%d\n%d\n", stack_b.tail->content, stack_b.tail->index);
     // printf("%d\n", stack_b.size);
