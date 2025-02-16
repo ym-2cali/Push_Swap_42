@@ -74,47 +74,68 @@ void    les_indices(t_list *stack)
     }
 }
 
+int count_bigger(t_list *stack,int i)
+{
+    int count = 0;
+    t_node *list = stack->head;
+    while(list != stack->tail)
+    {
+        if(list -> content < i)
+            count++;
+        list = list -> next;
+    }
+    if(list && list -> content < i)
+        count++;
+    return(count);
+}
 void    sort_index(t_list *stack)
 {
     t_node  *start;
-    t_node  *start_next;
-    int     tmp;
+
 
     start = stack->head;
-    tmp = 0;
-    while (start != stack->tail)
+    while(start != stack -> tail)
     {
-        start_next = start->next;
-        while (start_next != stack->head)
-        {
-            if ((start->content > start_next->content && start->index < start_next->index) || (start->content < start_next->content && start->index > start_next->index))
-            {
-                tmp = start->index;
-                start->index = start_next->index;
-                start_next->index = tmp;
-            }
-            start_next = start_next->next;
-        }
-        // if ((start->content > stack->tail->content && start->index < stack->tail->index) || (start->content > stack->tail->content && start->index < stack->tail->index))
-        // {
-        //     tmp = start->index;
-        //     start->index = stack->tail->index;
-        //     stack->tail->index = tmp;
-        // }
-        start = start->next;
+        start->index = count_bigger(stack,start->content);
+        start = start -> next;
     }
-    start = stack->head;
-    start_next = start->next;
-    while (start_next != start)
-    {
-        if ((start->content > start_next->content && start->index < start_next->index) 
-            || (start->content < start_next->content && start->index > start_next->index))
-        {
-            tmp = start->index;
-            start->index = start_next->index;
-            start_next->index = tmp;
-        }
-        start_next = start_next->next;
-    }
+    if(start)
+        start->index = count_bigger(stack,start->content);
+    // start = stack->head;
+    // tmp = 0;
+    // while (start != stack->tail)
+    // {
+    //     start_next = start->next;
+    //     while (start_next != stack->head)
+    //     {
+    //         if ((start->content > start_next->content && start->index < start_next->index) || (start->content < start_next->content && start->index > start_next->index))
+    //         {
+    //             tmp = start->index;
+    //             start->index = start_next->index;
+    //             start_next->index = tmp;
+    //         }
+    //         start_next = start_next->next;
+    //     }
+    //     // if ((start->content > stack->tail->content && start->index < stack->tail->index) || (start->content > stack->tail->content && start->index < stack->tail->index))
+    //     // {
+    //     //     tmp = start->index;
+    //     //     start->index = stack->tail->index;
+    //     //     stack->tail->index = tmp;
+    //     // }
+    //     start = start->next;
+    // }
+    // start = stack->head;
+    // start_next = start->next;
+    // while (start_next != start)
+    // {
+    //     if ((start->content > start_next->content && start->index < start_next->index) 
+    //         || (start->content < start_next->content && start->index > start_next->index))
+    //     {
+    //         tmp = start->index;
+    //         start->index = start_next->index;
+    //         start_next->index = tmp;
+    //     }
+    //     start_next = start_next->next;
+    // }
 
 }
