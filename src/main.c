@@ -255,6 +255,7 @@ int main(int ac, char **av)
     // print_rstack(&stack);
     // printf("%d\n%d\n", stack_b.tail->content, stack_b.tail->index);
     // printf("%d\n", stack_b.size);
-    //clear_stack(&stack);
+    // clear_stack(&stack_b);
+    clear_stack(&stack);
     return (0);
 }

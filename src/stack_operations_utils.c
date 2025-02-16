@@ -14,7 +14,6 @@ void    clear_stack(t_list *stack)
 
 t_node  *create_node(int content)
 {
-    
     t_node  *node;
 
     node = malloc(sizeof(t_node));
