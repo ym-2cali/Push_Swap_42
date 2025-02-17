@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:53:05 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 17:46:11 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:18:19 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,11 @@ char	**join_it(char **av)
 
 	i = 1;
 	str = ft_strdup(av[i]);
-	if (!str || str[0] == '\0' || !check_white_spaces(str))
+	if (!str || !check_white_spaces(str))
 	{
 		write(2, "Error\n", 6);
+		if (str)
+			free(str);
 		exit(0);
 	}
 	i++;

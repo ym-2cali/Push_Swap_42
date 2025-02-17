@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:47 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 17:51:59 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:22:30 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,10 @@ int	main(int ac, char **av)
 	t_list	stack;
 	t_list	stack_b;
 
-	if (ac == 1)
+	if (ac <= 1)
 		return (0);
 	ft_bzero(&stack, sizeof(t_list));
 	ft_bzero(&stack_b, sizeof(t_list));
-	if (ac < 1)
-		return (1);
 	parse(av, &stack);
 	if (sorted(&stack))
 		return (0);

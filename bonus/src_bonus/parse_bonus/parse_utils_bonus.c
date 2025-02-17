@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*   parse_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:45:22 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 12:52:52 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:57:39 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc_bonus/push_swap_bonus.h"
 
 int	check_value(char *arg)
 {
@@ -92,7 +92,7 @@ char	*str_join(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	if (!s2 || s2[0] == '\0' || !check_white_spaces(s2))
+	if (!s2 || !check_white_spaces(s2))
 	{
 		write(2, "Error\n", 6);
 		free(s1);

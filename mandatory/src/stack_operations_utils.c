@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:56 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 15:42:19 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:20:36 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int	count_bigger(t_list *stack, int i)
 	list = stack->head;
 	while (list != stack->tail)
 	{
-		if (list -> content < i)
+		if (list->content < i)
 			count++;
-		list = list -> next;
+		list = list->next;
 	}
-	if (list && list -> content < i)
+	if (list && list->content < i)
 		count++;
 	return (count);
 }
@@ -82,7 +82,7 @@ void	sort_index(t_list *stack)
 	t_node	*start;
 
 	start = stack->head;
-	while (start != stack -> tail)
+	while (start != stack->tail)
 	{
 		start->index = count_bigger(stack, start->content);
 		start = start->next;

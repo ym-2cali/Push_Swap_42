@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:53 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 15:37:08 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:23:21 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	sort_algo(t_list *stack, t_list *stack_b)
 	int	tmp;
 
 	i = 0;
-	sort_index(stack);
 	if (stack->size <= 100)
 		j = stack->size / 8;
 	else
