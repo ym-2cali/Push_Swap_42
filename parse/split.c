@@ -57,24 +57,6 @@ char	**ft_freearr(char **arr)
 	return (NULL);
 }
 
-// static char *ft_fullfill(char **arr, char const *s, char c, size_t i)
-// {
-// 	char	*tmp;
-
-// 	tmp = arr[i];
-// 	if (*s != c && *s)
-// 	{
-// 		while (*s != c && *s)
-// 		{
-// 			*tmp = *s;
-// 			tmp++;
-// 			s++;
-// 		}
-// 		*tmp = '\0';
-// 	}
-// 	return (tmp);
-// }
-
 static char	*ft_fullfill(char **arr, char *s, char c, size_t i)
 {
 	char	*tmp;

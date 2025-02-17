@@ -70,13 +70,8 @@ void	print_stack(t_list *stack)
 		printf("wow\n");
 		return ;
 	}
-	// if (stack->size <= 1)
-	// {
-	// 	printf("%d\n",stack->head->content);
-	// 	return ;
-	// }
+
 	tmp = stack->head;
-	// printf("{%d}\n", tmp->prev->content);
 	while (tmp != stack->tail)
 	{
 		printf("%d\n", tmp->content);

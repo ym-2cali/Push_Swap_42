@@ -1,11 +1,11 @@
 SRC =  src/main.c  src/operations.c  src/stack_operations_utils.c parse/parse_utils.c parse/libft_parse_utils.c\
-parse/parse.c parse/split.c parse/libft_parse_utils1.c sorting_tools/sorting.c  src/stack_operations.c \
+parse/parse.c parse/split.c parse/libft_parse_utils1.c src/sorting.c  src/stack_operations.c \
 # test.c 
 OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror  -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror  #-fsanitize=address
 
 NAME = push_swap
 
