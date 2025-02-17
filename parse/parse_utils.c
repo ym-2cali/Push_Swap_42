@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 12:45:22 by yael-maa          #+#    #+#             */
+/*   Updated: 2025/02/17 12:52:52 by yael-maa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
-int check_value(char *arg)
+int	check_value(char *arg)
 {
-    int i;
-	long nb;
-	int	sign;
-    
+	int		i;
+	long	nb;
+	int		sign;
+
 	i = count_signs(arg);
 	if (i > 1)
 		return (0);
@@ -15,16 +27,17 @@ int check_value(char *arg)
 	nb = 0;
 	if (!arg[i])
 		return (0);
-    while (arg[i])
+	while (arg[i])
 	{
 		if (!ft_isdigit(arg[i]))
 			return (0);
 		nb = nb * 10 + (arg[i] - '0');
-		if ((nb > INT_MAX && sign == 1) || (nb > (long)(INT_MAX) + 1 && sign == -1))
+		if ((nb > INT_MAX && sign == 1)
+			|| (nb > (long)(INT_MAX) + 1 && sign == -1))
 			return (0);
 		i++;
 	}
-    return (1);
+	return (1);
 }
 
 int	valid_value(char **arr)
@@ -41,9 +54,9 @@ int	valid_value(char **arr)
 	return (1);
 }
 
-int check_duplicate(int *tab, int size)
+int	check_duplicate(int *tab, int size)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -61,23 +74,42 @@ int check_duplicate(int *tab, int size)
 	return (0);
 }
 
-void	print_stack(t_list *stack)
+int	check_white_spaces(char *str)
 {
-	t_node *tmp;
+	int	i;
 
-	if (!stack)
-	{
-		printf("wow\n");
-		return ;
-	}
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	return (1);
+}
 
-	tmp = stack->head;
-	while (tmp != stack->tail)
+char	*str_join(char *s1, char *s2)
+{
+	char	*s3;
+	int		i;
+	int		j;
+
+	if (!s2 || s2[0] == '\0' || !check_white_spaces(s2))
 	{
-		printf("%d\n", tmp->content);
-		printf("[%d]\n", tmp->index);
-		tmp = tmp->next;
+		write(2, "Error\n", 6);
+		free(s1);
+		return (NULL);
 	}
-	printf("%d\n", tmp->content);
-	printf("[%d]\n", tmp->index);
+	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
+	if (!s3)
+		return (free(s1), NULL);
+	i = -1;
+	while (s1[++i])
+		s3[i] = s1[i];
+	s3[i] = ' ';
+	i++;
+	j = -1;
+	while (s2[++j])
+		s3[i + j] = s2[j];
+	s3[i + j] = '\0';
+	free(s1);
+	return (s3);
 }

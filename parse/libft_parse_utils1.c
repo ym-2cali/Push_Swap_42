@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft_parse_utils1.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 12:43:50 by yael-maa          #+#    #+#             */
+/*   Updated: 2025/02/17 12:45:03 by yael-maa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int	ft_atoi(const char *str)
@@ -26,15 +38,16 @@ int	ft_atoi(const char *str)
 	return ((int)(result * s));
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (s1[i] && s2[i] && s1[i] == s2[i])
-        i++;
-    return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*c;
@@ -48,6 +61,7 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
+
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;

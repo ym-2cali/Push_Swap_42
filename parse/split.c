@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 14:58:12 by yael-maa          #+#    #+#             */
+/*   Updated: 2025/02/17 14:58:46 by yael-maa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 static int	count_words(char const *s, char c)
@@ -75,7 +87,6 @@ static char	*ft_fullfill(char **arr, char *s, char c, size_t i)
 	return (s);
 }
 
-
 char	**ft_split(char *s, char c)
 {
 	char	**arr;
@@ -87,7 +98,7 @@ char	**ft_split(char *s, char c)
 	n_words = count_words(s, c);
 	arr = (char **)malloc(sizeof(char *) * (n_words + 1));
 	if (!arr)
-		return (free(s),NULL);
+		return (free(s), NULL);
 	i = 0;
 	while (i < n_words)
 	{

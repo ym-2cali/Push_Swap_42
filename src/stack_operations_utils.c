@@ -1,98 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operations_utils.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 14:59:56 by yael-maa          #+#    #+#             */
+/*   Updated: 2025/02/17 15:42:19 by yael-maa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
-void    clear_stack(t_list *stack)
+void	clear_stack(t_list *stack)
 {
-    t_node *temp;
-    while(stack->head != stack ->tail)
-    {
-        temp = stack->head;
-        stack->head = stack->head->next;
-        free(temp);
-    }
-    free(stack->head);
+	t_node	*temp;
+
+	while (stack->head != stack ->tail)
+	{
+		temp = stack->head;
+		stack->head = stack->head->next;
+		free(temp);
+	}
+	free(stack->head);
 }
 
-t_node  *create_node(int content)
+t_node	*create_node(int content)
 {
-    t_node  *node;
+	t_node	*node;
 
-    node = malloc(sizeof(t_node));
-    if (!node)
-        return (NULL);
-    node->content = content;
-    node->prev = NULL;
-    node->next = NULL;
-    return (node);
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->prev = NULL;
+	node->next = NULL;
+	return (node);
 }
 
-void    fill_stack(t_list *stack, t_node *node)
+void	fill_stack(t_list *stack, t_node *node)
 {
-    if (!stack || !node)
-        return ;
-    if (stack->size == 0)
-    {
-        stack->head = node;
-        stack->tail = node;
-        node->next = node;
-        node->prev = node;
-        stack->size++;
-        return ;
-    }
-    node->prev = stack->tail;
-    node->next = stack->head;
-    stack->tail->next = node;
-    stack->head->prev = node;
-    stack->size++;
-    stack->tail = node;
+	if (!stack || !node)
+		return ;
+	if (stack->size == 0)
+	{
+		stack->head = node;
+		stack->tail = node;
+		node->next = node;
+		node->prev = node;
+		stack->size++;
+		return ;
+	}
+	node->prev = stack->tail;
+	node->next = stack->head;
+	stack->tail->next = node;
+	stack->head->prev = node;
+	stack->size++;
+	stack->tail = node;
 }
 
-void    les_indices(t_list *stack)
+int	count_bigger(t_list *stack, int i)
 {
-    t_node  *tmp;
-    int     i;
+	int		count;
+	t_node	*list;
 
-    if (!stack)
-        return ;
-    tmp = stack->head;
-    tmp->index = 0;
-    i = 1;
-    if (stack->size > 1)
-    {
-        tmp = tmp->next;
-        while (tmp != stack->tail)
-        {
-            tmp->index = i++;
-            tmp = tmp->next;
-        }
-        tmp->index = i++;
-    }
+	count = 0;
+	list = stack->head;
+	while (list != stack->tail)
+	{
+		if (list -> content < i)
+			count++;
+		list = list -> next;
+	}
+	if (list && list -> content < i)
+		count++;
+	return (count);
 }
 
-int count_bigger(t_list *stack,int i)
+void	sort_index(t_list *stack)
 {
-    int count = 0;
-    t_node *list = stack->head;
-    while(list != stack->tail)
-    {
-        if(list -> content < i)
-            count++;
-        list = list -> next;
-    }
-    if(list && list -> content < i)
-        count++;
-    return(count);
-}
-void    sort_index(t_list *stack)
-{
-    t_node  *start;
+	t_node	*start;
 
-
-    start = stack->head;
-    while(start != stack -> tail)
-    {
-        start->index = count_bigger(stack,start->content);
-        start = start -> next;
-    }
-    if(start)
-        start->index = count_bigger(stack,start->content);
+	start = stack->head;
+	while (start != stack -> tail)
+	{
+		start->index = count_bigger(stack, start->content);
+		start = start->next;
+	}
+	if (start)
+		start->index = count_bigger(stack, start->content);
 }

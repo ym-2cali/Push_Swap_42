@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft_parse_utils.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 12:36:38 by yael-maa          #+#    #+#             */
+/*   Updated: 2025/02/17 12:43:03 by yael-maa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int	ft_isdigit(char c)
@@ -7,81 +19,41 @@ int	ft_isdigit(char c)
 	return (0);
 }
 
-int is_sign(char c)
+int	is_sign(char c)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (c == '+' || c == '-')
-            i++;
-    return (i);
+	i = 0;
+	if (c == '+' || c == '-')
+		i++;
+	return (i);
 }
 
-int count_signs(char *str)
+int	count_signs(char *str)
 {
-    int i;
-    int c;
+	int	i;
+	int	c;
 
-    i = -1;
-    c = 0;
-    while (str[++i])
-        c += is_sign(str[i]);
-    return (c);
+	i = -1;
+	c = 0;
+	while (str[++i])
+		c += is_sign(str[i]);
+	return (c);
 }
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!str)
-        return (0);
-    while (str[i])
-        i++;
-    return (i);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int ft_isspace(char c)
+int	ft_isspace(char c)
 {
-    return (c == ' ' || (c >= 9 && c <= 13));
-}
-
-int check_white_spaces(char *str)
-{
-    int i;
-
-    i = 0;
-    while (ft_isspace(str[i]))
-        i++;
-    if (str[i] == '\0')
-        return (0);
-    return (1);
-}
-
-char    *str_join(char *s1, char *s2)
-{
-    char    *s3;
-    int     i;
-    int     j;
-
-    if (!s2 || s2[0] == '\0'|| !check_white_spaces(s2))
-    {
-        write(2, "Error\n", 6);
-        free(s1);
-        return (NULL);
-    }
-    s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
-    if (!s3)
-        return (free(s1), NULL);
-    i = -1;
-    while (s1[++i])
-        s3[i] = s1[i];
-    s3[i] = ' ';
-    i++;
-    j = -1;
-    while (s2[++j])
-        s3[i + j] = s2[j];
-    s3[i + j] = '\0';
-	free(s1);
-    return (s3);
+	return (c == ' ' || (c >= 9 && c <= 13));
 }
