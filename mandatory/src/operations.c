@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 15:29:12 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:33:31 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,6 @@ void	swap_swap(t_list *a, t_list *b)
 	swap(a, 's');
 	swap(b, 's');
 	write(1, "ss\n", 3);
-}
-
-void	push_ab(t_list *a, t_list *b)
-{
-	t_node	*node;
-
-	node = create_node(b->tail->content);
-	if (!node)
-		return ;
-	(*node).prev = a->tail;
-	node->next = a->head;
-	a->tail->next = node;
-	a->head->prev = node;
-	a->tail = node;
-	a->size++;
-	write(1, "pab\n", 4);
 }
 
 void	reverse_rotate(t_list *a, char c)

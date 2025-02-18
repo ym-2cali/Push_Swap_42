@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 17:14:06 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:12:10 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	swap(t_list *stack)
 
 void	swap_swap(t_list *a, t_list *b)
 {
+	if (!a || !b)
+		return ;
 	swap(a);
 	swap(b);
 }
@@ -46,4 +48,11 @@ void	rotate(t_list *a)
 		return ;
 	a->tail = a->head;
 	a->head = a->head->next;
+}
+
+void	error(t_list *stack)
+{
+	write(2, "Error\n", 6);
+	clear_stack(stack);
+	exit(0);
 }

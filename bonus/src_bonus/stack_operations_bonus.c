@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:59 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 17:25:18 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:56:04 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,16 @@ int	pop(t_list *stack)
 
 void	rotate_rotate(t_list *a, t_list *b)
 {
+	if (!a || !b)
+		return ;
 	rotate(a);
 	rotate(b);
 }
 
 void	reverse_rotate_rotate(t_list *a, t_list *b)
 {
+	if (!a || !b)
+		return ;
 	reverse_rotate(a);
 	reverse_rotate(b);
 }

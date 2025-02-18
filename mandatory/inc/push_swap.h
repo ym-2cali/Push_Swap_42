@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:28:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 17:44:37 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:33:41 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,11 @@ int		ft_strcmp(char *s1, char *s2);
 void	build_stack(int *tab, int size, t_list *stack);
 int		*tab(char **arr);
 int		tab_size(char **arr);
-void	print_stack(t_list *stack);
 void	parse(char **av, t_list *stack);
 void	swap(t_list *a, char c);
 void	rotate(t_list *a, char c);
 void	rotate_rotate(t_list *a, t_list *b);
 void	reverse_rotate(t_list *a, char c);
-void	push_ab(t_list *a, t_list *b);
 void	reverse_rotate_rotate(t_list *a, t_list *b);
 int		ft_isspace(char c);
 int		check_white_spaces(char *str);

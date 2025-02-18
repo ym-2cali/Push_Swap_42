@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:28:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 17:56:29 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:10:31 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ int		check_errors_size(char **arr);
 void	check_int_tab_errors(int *bat, int size);
 int		ft_strncmp(char *s1, char *s2, int n);
 void	swap_swap(t_list *a, t_list *b);
+void	operations1(t_list *stack, t_list *stack_b, char *str);
+void	operations2(t_list *stack, t_list *stack_b, char *str);
+void	error(t_list *stack);
 
 #endif

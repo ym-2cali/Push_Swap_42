@@ -22,7 +22,7 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-bonus: $(OBJ_BONUS)
+bonus:$(OBJ_BONUS)
 	@$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME_BONUS)
 
 %.o: %.c mandatory/inc/push_swap.h bonus/inc_bonus/push_swap_bonus.h

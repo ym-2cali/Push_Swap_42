@@ -6,12 +6,11 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:58:12 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 17:49:26 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:25:09 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
-
 
 static int	count_words(char const *s, char c)
 {
