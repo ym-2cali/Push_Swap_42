@@ -6,11 +6,11 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:53:05 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 18:18:19 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:49:20 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	tab_size(char **arr)
 {

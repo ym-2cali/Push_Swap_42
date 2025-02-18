@@ -6,11 +6,11 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:45:22 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 18:18:26 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:49:15 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	check_value(char *arg)
 {

@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:28:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 19:51:09 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:56:29 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,32 +52,23 @@ int		ft_strcmp(char *s1, char *s2);
 void	build_stack(int *tab, int size, t_list *stack);
 int		*tab(char **arr);
 int		tab_size(char **arr);
-void	print_stack(t_list *stack);
 void	parse(char **av, t_list *stack);
-void	swap(t_list *a, char c);
-void	rotate(t_list *a, char c);
+void	swap(t_list *a);
+void	rotate(t_list *a);
 void	rotate_rotate(t_list *a, t_list *b);
-void	reverse_rotate(t_list *a, char c);
-void	push_ab(t_list *a, t_list *b);
+void	reverse_rotate(t_list *a);
 void	reverse_rotate_rotate(t_list *a, t_list *b);
 int		ft_isspace(char c);
 int		check_white_spaces(char *str);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strdup(const char *s1);
-void	sort_index(t_list *stack);
-int		back_or_front(t_list *stack, int ind);
-void	sort_5(t_list *stack, t_list *stack_b);
-void	sort_3(t_list *stack);
-void	sort_algo(t_list *stack, t_list *stack_b);
-void	algo(t_list *stack_a, t_list *stack_b);
 void	fill_head_stack(t_list *stack, t_node *node);
-void	push_to_head(t_list *stack, int content, char c);
+void	push_to_head(t_list *stack, int content);
 int		sorted(t_list *stack);
 char	**join_it(char **av);
 int		check_errors_size(char **arr);
 void	check_int_tab_errors(int *bat, int size);
-void	sort_4(t_list *stack, t_list *stack_b);
-void	sorting(t_list *stack, t_list *stack_b);
-void	sort_2(t_list *stack);
+int		ft_strncmp(char *s1, char *s2, int n);
+void	swap_swap(t_list *a, t_list *b);
 
 #endif

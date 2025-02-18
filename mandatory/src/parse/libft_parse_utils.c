@@ -6,11 +6,12 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:36:38 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 12:43:03 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:49:42 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
+
 
 int	ft_isdigit(char c)
 {

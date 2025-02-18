@@ -6,11 +6,12 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:43:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 18:29:24 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:49:33 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
+
 
 int	ft_atoi(const char *str)
 {
