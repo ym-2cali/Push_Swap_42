@@ -41,7 +41,7 @@ int		ft_strlen(const char *str);
 char	*str_join(char *s1, char *s2);
 char	**ft_split(char *s, char c);
 int		ft_isdigit(char c);
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str, char **arr, int *tab);
 int		check_value(char *arg);
 int		valid_value(char **arr);
 int		check_duplicate(int *tab, int size);

@@ -76,5 +76,7 @@ int	main(int ac, char **av)
 	if (sorted(&stack))
 		return (0);
 	sorting(&stack, &stack_b);
+	if (stack.size > 0)
+		clear_stack(&stack);
 	return (0);
 }

@@ -33,7 +33,7 @@ int	*tab(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		tab[i] = ft_atoi(arr[i]);
+		tab[i] = ft_atoi(arr[i], arr, tab);
 		i++;
 	}
 	return (tab);

@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str , char **arr, int *tab)
 {
 	int		s;
 	long	result;
@@ -30,6 +30,9 @@ int	ft_atoi(const char *str)
 		if (result > (INT_MAX - (*str - '0')) / 10 && s != -1)
 		{
 			write(2, "Error\n", 6);
+			ft_freearr(arr);
+			if (tab)
+				free(tab);
 			exit (0);
 		}
 		result = result * 10 + (*str - '0');
