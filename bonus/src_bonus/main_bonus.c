@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:12:42 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 20:21:04 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:57:29 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,53 +65,53 @@ void	operations2(t_list *stack, t_list *stack_b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		reverse_rotate_rotate(stack, stack_b);
 	else
-		error(stack);
+		free_error(stack, str);
 }
 
-void	operations1(t_list *stack, t_list *stack_b, char *str)
+void	operations1(t_list *stack, t_list *stack_b)
 {
-	while (str != NULL)
+	char	*str;
+	int		i;
+
+
+	i = 0;
+	str = NULL;
+	while (i == 0 || str != NULL)
 	{
+		i = 1;
 		str = get_next_line(0);
 		if (!str)
 			return ;
 		if (!ft_strncmp(str, "sa\n", 3))
-		{
-			if (stack->size)
-				swap(stack);
-		}
+			swap(stack);
 		else if (!ft_strncmp(str, "sb\n", 3))
-		{
-			if (stack_b->size)
-				swap(stack_b);
-		}
+			swap(stack_b);
 		else if (!ft_strncmp(str, "ss\n", 3))
-		{
-			if (stack->size && stack_b->size)
-				swap_swap(stack_b, stack);
-		}
+			swap_swap(stack_b, stack);
 		else
 			operations2(stack, stack_b, str);
+		free(str);
 	}
 }
-void f(){system("leaks push_swap");}
+
 int	main(int ac, char **av)
 {
 	t_list	stack;
 	t_list	stack_b;
-	char	str;
-	atexit(f);
+
 	if (ac <= 1)
 		return (0);
 	ft_bzero(&stack, sizeof(t_list));
 	ft_bzero(&stack_b, sizeof(t_list));
 	parse(av, &stack);
-	ft_bzero(&str, sizeof(char *));
-	operations1(&stack, &stack_b, &str);
+	operations1(&stack, &stack_b);
 	if (sorted(&stack) && !stack_b.size)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	clear_stack(&stack);
+	if (stack.size)
+		clear_stack(&stack);
+	if (stack_b.size)
+		clear_stack(&stack_b);
 	return (0);
 }

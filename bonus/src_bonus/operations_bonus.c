@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 20:12:10 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:53:21 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	swap(t_list *stack)
 {
 	int	tmp;
 
-	if (!stack)
+	if (!stack || stack->size <= 1)
 		return ;
 	tmp = stack->head->content;
 	stack->head->content = stack->head->next->content;

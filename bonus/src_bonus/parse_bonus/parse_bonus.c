@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:53:05 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 19:57:35 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:22:58 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	*tab(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		tab[i] = ft_atoi(arr[i]);
+		tab[i] = ft_atoi(arr[i], arr, tab);
 		i++;
 	}
 	return (tab);

@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:11:32 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 18:40:38 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:52:52 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void	clear_stack(t_list *stack)
 {
 	t_node	*temp;
 
-	while (stack->head != stack ->tail)
+	while (stack->head != stack->tail)
 	{
 		temp = stack->head;
 		stack->head = stack->head->next;
 		free(temp);
 	}
 	free(stack->head);
+
 }
 
 t_node	*create_node(int content)

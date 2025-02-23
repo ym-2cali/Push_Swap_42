@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:28:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 20:10:31 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:35:37 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include <limits.h>
 # include "../src_bonus/get_next_line/get_next_line.h"
-
+#include <stdio.h>
 typedef struct s_node {
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -42,7 +42,7 @@ int		ft_strlen(const char *str);
 char	*str_join(char *s1, char *s2);
 char	**ft_split(char *s, char c);
 int		ft_isdigit(char c);
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *str, char **arr, int *tab);
 int		check_value(char *arg);
 int		valid_value(char **arr);
 int		check_duplicate(int *tab, int size);
@@ -70,8 +70,9 @@ int		check_errors_size(char **arr);
 void	check_int_tab_errors(int *bat, int size);
 int		ft_strncmp(char *s1, char *s2, int n);
 void	swap_swap(t_list *a, t_list *b);
-void	operations1(t_list *stack, t_list *stack_b, char *str);
+void	operations1(t_list *stack, t_list *stack_b);
 void	operations2(t_list *stack, t_list *stack_b, char *str);
 void	error(t_list *stack);
+void	free_error(t_list *stack, char *str);
 
 #endif

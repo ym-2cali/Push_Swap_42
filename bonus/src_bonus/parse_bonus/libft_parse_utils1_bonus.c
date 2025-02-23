@@ -6,13 +6,13 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:43:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 20:12:30 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:21:55 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc_bonus/push_swap_bonus.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, char **arr, int *tab)
 {
 	int		s;
 	long	result;
@@ -30,7 +30,9 @@ int	ft_atoi(const char *str)
 		if (result > (INT_MAX - (*str - '0')) / 10 && s != -1)
 		{
 			write(2, "Error\n", 6);
-			exit (0);
+			ft_freearr(arr);
+			free(tab);
+			exit(0);
 		}
 		result = result * 10 + (*str - '0');
 		str++;

@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:56:23 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/17 20:15:20 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:46:58 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,11 @@ void	check_int_tab_errors(int *bat, int size)
 		free(bat);
 		exit(0);
 	}
+}
+
+void	free_error(t_list *stack, char *str)
+{
+	free(str);
+	str = NULL;
+	error(stack);
 }

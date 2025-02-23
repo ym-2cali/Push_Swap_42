@@ -11,7 +11,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror  #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
 
@@ -19,20 +19,22 @@ NAME_BONUS = checker
 
 all:$(NAME)
 
-$(NAME):$(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME):$(OBJ) mandatory/inc/push_swap.h
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-bonus:$(OBJ_BONUS)
-	@$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME_BONUS)
+bonus:$(NAME_BONUS)
 
-%.o: %.c mandatory/inc/push_swap.h bonus/inc_bonus/push_swap_bonus.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(NAME_BONUS):$(OBJ_BONUS) bonus/inc_bonus/push_swap_bonus.h
+	$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME_BONUS) 
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ) $(OBJ_BONUS)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	@rm -f $(NAME) $(NAME_BONUS)
+	rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 

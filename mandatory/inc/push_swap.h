@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:28:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/18 18:33:41 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/23 17:19:16 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_strlen(const char *str);
 char	*str_join(char *s1, char *s2);
 char	**ft_split(char *s, char c);
 int		ft_isdigit(char c);
-int		ft_atoi(char *str, char **arr, int *tab);
+int		ft_atoi(const char *str, char **arr, int *tab);
 int		check_value(char *arg);
 int		valid_value(char **arr);
 int		check_duplicate(int *tab, int size);
@@ -76,5 +76,7 @@ void	check_int_tab_errors(int *bat, int size);
 void	sort_4(t_list *stack, t_list *stack_b);
 void	sorting(t_list *stack, t_list *stack_b);
 void	sort_2(t_list *stack);
+int		failure_case(t_list *stack, int size);
+int		chunks(t_list *stack);
 
 #endif
