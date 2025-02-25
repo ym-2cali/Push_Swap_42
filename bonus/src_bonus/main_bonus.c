@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:12:42 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/23 19:57:29 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:19:41 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,34 @@ void	operations2(t_list *stack, t_list *stack_b, char *str)
 		reverse_rotate(stack_b);
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		reverse_rotate_rotate(stack, stack_b);
-	else
-		free_error(stack, str);
 }
 
 void	operations1(t_list *stack, t_list *stack_b)
 {
 	char	*str;
-	int		i;
+	char	*arr;
+	char	**rrr;
 
-
-	i = 0;
-	str = NULL;
-	while (i == 0 || str != NULL)
+	str = "";
+	arr = ft_strdup(" ");
+	while (str != NULL)
 	{
-		i = 1;
 		str = get_next_line(0);
 		if (!str)
-			return ;
-		if (!ft_strncmp(str, "sa\n", 3))
-			swap(stack);
-		else if (!ft_strncmp(str, "sb\n", 3))
-			swap(stack_b);
-		else if (!ft_strncmp(str, "ss\n", 3))
-			swap_swap(stack_b, stack);
+			break ;
+		if (!check_opration(str, arr))
+			free_error(stack, str);
 		else
-			operations2(stack, stack_b, str);
+		{
+			arr = ft_strjoin(arr, str);
+			arr = ft_strjoin(arr, " ");
+		}
 		free(str);
 	}
+	rrr = ft_split(arr, ' ');
+	free(arr);
+	apply_operation(rrr, stack, stack_b);
+	ft_freearr(rrr);
 }
 
 int	main(int ac, char **av)

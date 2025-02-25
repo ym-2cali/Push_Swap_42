@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:28:50 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/23 19:35:37 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:17:16 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <string.h>
 # include <limits.h>
 # include "../src_bonus/get_next_line/get_next_line.h"
-#include <stdio.h>
+
 typedef struct s_node {
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -74,5 +73,7 @@ void	operations1(t_list *stack, t_list *stack_b);
 void	operations2(t_list *stack, t_list *stack_b, char *str);
 void	error(t_list *stack);
 void	free_error(t_list *stack, char *str);
+int		check_opration(char *str, char *arr);
+void	apply_operation(char **opers, t_list *stack, t_list *stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:59:47 by yael-maa          #+#    #+#             */
-/*   Updated: 2025/02/23 17:20:54 by yael-maa         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:18:45 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	sorting(t_list *stack, t_list *stack_b)
 		sort_algo(stack, stack_b);
 		algo(stack, stack_b);
 	}
-	clear_stack(stack);
 }
 
 int	main(int ac, char **av)
@@ -73,11 +72,8 @@ int	main(int ac, char **av)
 	ft_bzero(&stack, sizeof(t_list));
 	ft_bzero(&stack_b, sizeof(t_list));
 	parse(av, &stack);
-	if (sorted(&stack))
-	{
-		clear_stack(&stack);
-		return (0);
-	}
-	sorting(&stack, &stack_b);
+	if (!sorted(&stack))
+		sorting(&stack, &stack_b);
+	clear_stack(&stack);
 	return (0);
 }
